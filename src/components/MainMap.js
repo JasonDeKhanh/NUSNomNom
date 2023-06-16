@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { MapContainer, TileLayer } from "react-leaflet";
 
+import { useCampusesContext } from "../hooks/useCampusesContext";
+
 function MainMap(props) {
+  const { curCampus, dispatch } = useCampusesContext();
+
   return (
     <div className="h-full w-full">
       <MapContainer
@@ -12,6 +16,7 @@ function MainMap(props) {
           [120, 20],
           [-50, -200],
         ]}
+        minZoom={1}
         maxZoom={5}
       >
         <TileLayer
