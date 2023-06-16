@@ -1,11 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
 import { useCampusesContext } from "../hooks/useCampusesContext";
 
 function MainMap(props) {
   const { curCampus, dispatch } = useCampusesContext();
+  const campusFolderPath =
+    "../maps/" + curCampus?.mapFolderName + "/{z}/{x}/{y}.png";
+
+  // fetch eateries
+  const [curEateries, setCurEateries] = useState([]);
+  useEffect(() => {
+    const fetchEateries = async () => {
+      const eateriesApiString = "/api/campuses/eateries/" + curCampus?._id;
+      const response = await fetch(eateriesApiString); // PRODUCTION: must put full links
+      const json = await response.json();
+
+      // check if response is okay and without error
+      if (response.ok) {
+        setCurEateries(json);
+      }
+    };
+
+    fetchEateries();
+  }, [curCampus]);
 
   return (
     <div className="h-full w-full">
@@ -19,11 +38,10 @@ function MainMap(props) {
         minZoom={1}
         maxZoom={5}
       >
-        <TileLayer
-          noWrap={true}
-          attribution=""
-          url={"../maps/kentridgecampus/{z}/{x}/{y}.png"}
-        />
+        <TileLayer noWrap={true} attribution="" url={campusFolderPath} />
+        {curEateries.map((eatery) => (
+          <Marker position={[eatery.yCoord, eatery.xCoord]}></Marker>
+        ))}
       </MapContainer>
     </div>
   );
