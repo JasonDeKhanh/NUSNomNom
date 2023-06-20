@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 
 import { useCampusesContext } from "../hooks/useCampusesContext";
 import CanteenMarker from "./CanteenMarker";
@@ -12,7 +12,6 @@ function MainMap(props) {
     "../maps/" + curCampus?.mapFolderName + "/{z}/{x}/{y}.png";
 
   // fetch eateries
-  const [curEateries, setCurEateries] = useState([]);
   const [curCanteens, setCurCanteens] = useState([]);
   const [curRestaurants, setCurRestaurants] = useState([]);
   useEffect(() => {

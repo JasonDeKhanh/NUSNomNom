@@ -11,6 +11,33 @@ export const campusesReducer = (state, action) => {
       return { campuses: action.payload, curCampus: krcampus };
     case "SET_CUR_CAMPUS":
       return {};
+    case "REMOVE_CUR_EATERY":
+      return {
+        campuses: state.campuses,
+        curCampus: state.curCampus,
+        curEatery: null,
+        curStall: null,
+      };
+    case "SET_CUR_EATERY":
+      return {
+        campuses: state.campuses,
+        curCampus: state.curCampus,
+        curEatery: action.payload,
+      };
+    case "SET_CUR_STALL":
+      return {
+        campuses: state.campuses,
+        curCampus: state.curCampus,
+        curEatery: state.curEatery,
+        curStall: action.payload,
+      };
+    case "REMOVE_CUR_STALL":
+      return {
+        campuses: state.campuses,
+        curCampus: state.curCampus,
+        curEatery: state.curEatery,
+        curStall: null,
+      };
     default:
       return state;
   }
