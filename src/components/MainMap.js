@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
 import { useCampusesContext } from "../hooks/useCampusesContext";
+import CanteenMarker from "./CanteenMarker";
+import RestaurantMarker from "./RestaurantMarker";
 
 function MainMap(props) {
   const { curCampus, dispatch } = useCampusesContext();
@@ -11,6 +13,8 @@ function MainMap(props) {
 
   // fetch eateries
   const [curEateries, setCurEateries] = useState([]);
+  const [curCanteens, setCurCanteens] = useState([]);
+  const [curRestaurants, setCurRestaurants] = useState([]);
   useEffect(() => {
     const fetchEateries = async () => {
       const eateriesApiString = "/api/campuses/eateries/" + curCampus?._id;
@@ -19,12 +23,16 @@ function MainMap(props) {
 
       // check if response is okay and without error
       if (response.ok) {
-        setCurEateries(json);
+        // setCurEateries(json);
+        setCurCanteens(json.canteens);
+        setCurRestaurants(json.restaurants);
       }
     };
 
     fetchEateries();
   }, [curCampus]);
+
+  // fetch canteens
 
   return (
     <div className="h-full w-full">
@@ -39,8 +47,14 @@ function MainMap(props) {
         maxZoom={5}
       >
         <TileLayer noWrap={true} attribution="" url={campusFolderPath} />
-        {curEateries.map((eatery) => (
-          <Marker position={[eatery.yCoord, eatery.xCoord]}></Marker>
+        {curCanteens.map((canteen) => (
+          <CanteenMarker key={canteen._id} canteen={canteen}></CanteenMarker>
+        ))}
+        {curRestaurants.map((restaurant) => (
+          <RestaurantMarker
+            key={restaurant._id}
+            restaurant={restaurant}
+          ></RestaurantMarker>
         ))}
       </MapContainer>
     </div>
