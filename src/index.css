@@ -22,4 +22,4 @@
 @tailwind utilities;
 
 @import "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"; /* Leaflet styles */
-@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@300;400;500;600;700&display=swap");

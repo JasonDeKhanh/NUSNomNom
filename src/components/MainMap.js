@@ -55,6 +55,12 @@ function MainMap(props) {
             restaurant={restaurant}
           ></RestaurantMarker>
         ))}
+        <div className="absolute bottom-0 z-10">
+          Vectors and icons by{" "}
+          <a href="https://www.svgrepo.com" target="_blank">
+            SVG Repo
+          </a>
+        </div>
       </MapContainer>
     </div>
   );

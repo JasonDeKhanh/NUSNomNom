@@ -47,7 +47,7 @@ function CanteenMarker(props) {
           icon={canteenIcon}
           eventHandlers={{ click: openCanteenPopup }}
         >
-          <PopupBox open={isOpenPopup}>
+          <PopupBox open={isOpenPopup} onClose={closeCanteenPopup}>
             {!curStall ? (
               <CanteenPopupContent
                 open={isOpenPopup}
