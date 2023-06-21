@@ -5,7 +5,7 @@ function PopupBox(props) {
   return (
     <div>
       {open && (
-        <div className="fixed left-[20%] top-[30%] z-50 flex flex min-h-[40vh] w-[60vw] flex-col items-center justify-center rounded-lg bg-blue-300 p-10">
+        <div className="absolute left-1/2 top-1/2 z-50 h-3/4 w-4/5 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white">
           {props.children}
         </div>
       )}
