@@ -25,31 +25,35 @@ function CanteenPopupContent(props) {
   return (
     <div className="h-full">
       {open && (
-        <div className="flex h-full flex-col">
+        <div className="h-full">
           <header
-            className="h-2/5 w-full bg-cover bg-center"
+            className="h-2/5 w-full bg-cover bg-center text-center md:text-left"
             style={{ backgroundImage: `url(${curEatery?.bgImageUrl})` }}
           >
-            <div className="h-full bg-gradient-to-r from-black from-20% p-10 text-[#FFFFE7]">
+            <div className="h-full bg-black bg-black/70 p-10 text-[#FFFFE7] md:bg-transparent md:bg-gradient-to-r md:from-black md:from-20% md:opacity-100">
               {curEatery && (
-                <div>
-                  <h1 className="mb-2 text-7xl font-semibold">
-                    {curEatery.name}
-                  </h1>
-                  <div className="flex flex-col text-base">
-                    <span>Opening hours: {curEatery.openingHours}</span>
-                    <span>
-                      Near:{" "}
-                      {curEatery.placesNear.map((place, index) => (
-                        <span key={index}>{(index ? ", " : "") + place}</span>
-                      ))}
-                    </span>
-                    <span>
-                      Bus stops:{" "}
-                      {curEatery.busStopsNear.map((busStop, index) => (
-                        <span key={index}>{(index ? ", " : "") + busStop}</span>
-                      ))}
-                    </span>
+                <div className="flex h-full items-center">
+                  <div>
+                    <h1 className="mb-2 text-5xl font-semibold lg:text-7xl">
+                      {curEatery.name}
+                    </h1>
+                    <div className="flex flex-col text-base font-medium">
+                      <span>Opening hours: {curEatery.openingHours}</span>
+                      <span>
+                        Near:{" "}
+                        {curEatery.placesNear.map((place, index) => (
+                          <span key={index}>{(index ? ", " : "") + place}</span>
+                        ))}
+                      </span>
+                      <span>
+                        Bus stops:{" "}
+                        {curEatery.busStopsNear.map((busStop, index) => (
+                          <span key={index}>
+                            {(index ? ", " : "") + busStop}
+                          </span>
+                        ))}
+                      </span>
+                    </div>
                   </div>
                 </div>
               )}
