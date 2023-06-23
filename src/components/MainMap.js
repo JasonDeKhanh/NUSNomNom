@@ -8,6 +8,7 @@ import RestaurantMarker from "./RestaurantMarker";
 
 function MainMap(props) {
   const { curCampus, dispatch } = useCampusesContext();
+
   const campusFolderPath =
     "../maps/" + curCampus?.mapFolderName + "/{z}/{x}/{y}.png";
 
@@ -30,8 +31,6 @@ function MainMap(props) {
 
     fetchEateries();
   }, [curCampus]);
-
-  // fetch canteens
 
   return (
     <div className="h-full w-full">

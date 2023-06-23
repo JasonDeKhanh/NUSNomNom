@@ -9,7 +9,17 @@ function StallListEl(props) {
     dispatch({ type: "SET_CUR_STALL", payload: stall });
   }
 
-  return <div onClick={handleOnClickStall}>{stall.name}</div>;
+  return (
+    <div
+      onClick={handleOnClickStall}
+      className="mx-2 my-4 h-20 w-full overflow-scroll bg-[#FFFFE7]"
+    >
+      <div className="flex">
+        <span>{stall.name}</span>
+        <span>{stall.foodType}</span>
+      </div>
+    </div>
+  );
 }
 
 export default StallListEl;

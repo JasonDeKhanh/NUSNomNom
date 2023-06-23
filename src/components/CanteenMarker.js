@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Marker } from "react-leaflet";
+import { Marker, useMap } from "react-leaflet";
 import L from "leaflet";
 import CanteenPopupContent from "./CanteenPopupContent";
 import PopupBox from "./PopupBox";
@@ -19,14 +19,31 @@ function CanteenMarker(props) {
 
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
+  const map = useMap();
+  function setBackgroundZoom(zoomBoolean) {
+    if (zoomBoolean !== map.options.scrollWheelZoom) {
+      map.options.scrollWheelZoom = zoomBoolean;
+      map.options.doubleClickZoom = zoomBoolean;
+      if (zoomBoolean) {
+        map.scrollWheelZoom.enable();
+        map.doubleClickZoom.enable();
+      } else {
+        map.scrollWheelZoom.disable();
+        map.doubleClickZoom.disable();
+      }
+    }
+  }
+
   function openCanteenPopup() {
     setIsOpenPopup(true);
     getCurCanteenDetails();
+    setBackgroundZoom(false);
   }
 
   function closeCanteenPopup() {
     setIsOpenPopup(false);
     dispatch({ type: "REMOVE_CUR_EATERY", payload: null });
+    setBackgroundZoom(true);
   }
 
   async function getCurCanteenDetails() {

@@ -59,9 +59,9 @@ function CanteenPopupContent(props) {
               )}
             </div>
           </header>
-          {curEatery && (
-            <StallsListSection stalls={curEatery.stalls}></StallsListSection>
-          )}
+          <div>
+            <StallsListSection stalls={curEatery?.stalls}></StallsListSection>
+          </div>
         </div>
       )}
     </div>
