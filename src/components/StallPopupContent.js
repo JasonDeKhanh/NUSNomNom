@@ -33,7 +33,7 @@ function StallPopupContent(props) {
   return (
     <div className="h-full">
       <header
-        className="h-2/6 w-full bg-cover bg-center md:text-left"
+        className="h-min max-h-[40%] w-full bg-cover bg-center md:text-left"
         style={{ backgroundImage: `url(${curStall?.stallImageUrl})` }}
       >
         <div className="h-full bg-black bg-black/70 p-10 text-[#ffffcc] md:bg-transparent md:bg-gradient-to-r md:from-black md:from-20% md:opacity-100">
