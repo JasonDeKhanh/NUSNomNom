@@ -23,8 +23,8 @@ function StallListEl(props) {
           className="h-36 w-48 self-center rounded-lg object-cover"
         />
         <div className="ml-2 flex scroll-my-4 flex-col p-2">
-          <span className="text-lg font-bold lg:text-2xl">{stall.name}</span>
-          <span className="text-base font-medium italic lg:text-lg lg:font-semibold">
+          <span className="text-lg font-bold lg:text-xl">{stall.name}</span>
+          <span className="text-base font-medium italic lg:font-semibold">
             {stall.foodType}
           </span>
           <span className="mt-1 text-sm font-medium lg:text-base lg:font-semibold">

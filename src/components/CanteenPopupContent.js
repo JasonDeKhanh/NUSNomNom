@@ -31,9 +31,9 @@ function CanteenPopupContent(props) {
           >
             <div className="h-full bg-black bg-black/70 p-10 text-[#ffffcc] md:bg-transparent md:bg-gradient-to-r md:from-black md:from-20% md:opacity-100">
               {curEatery && (
-                <div className="flex h-full items-center">
+                <div className="flex h-full items-center justify-center md:justify-start">
                   <div>
-                    <h1 className="mb-2 text-5xl font-semibold lg:text-7xl">
+                    <h1 className="mb-2 text-3xl font-semibold lg:text-5xl">
                       {curEatery.name}
                     </h1>
                     <div className="flex flex-col text-base font-medium">

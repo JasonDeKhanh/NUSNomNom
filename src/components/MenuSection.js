@@ -5,11 +5,15 @@ function MenuSection(props) {
   const { menuSection } = props;
   return (
     <main className="mb-6">
-      <div className="text-xl font-bold">{menuSection.sectionName}</div>
+      <div className="text-xl font-bold md:text-2xl">
+        {menuSection.sectionName}
+      </div>
       <hr className="mb-1 border border-[1px] border-[#F9C03F]" />
-      {menuSection.menuItems.map((menuItem) => (
-        <MenuItem key={menuItem._id} menuItem={menuItem}></MenuItem>
-      ))}
+      <div className="md:columns-2">
+        {menuSection.menuItems.map((menuItem) => (
+          <MenuItem key={menuItem._id} menuItem={menuItem}></MenuItem>
+        ))}
+      </div>
     </main>
   );
 }

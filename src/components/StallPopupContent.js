@@ -32,31 +32,31 @@ function StallPopupContent() {
   return (
     <div className="h-full">
       <header
-        className="h-min max-h-[40%] w-full bg-cover bg-center md:text-left"
+        className="h-2/6 w-full bg-cover bg-center md:text-left"
         style={{ backgroundImage: `url(${curStall?.stallImageUrl})` }}
       >
         <div className="h-full bg-black bg-black/70 p-10 text-[#ffffcc] md:bg-transparent md:bg-gradient-to-r md:from-black md:from-20% md:opacity-100">
           {curStall && (
-            <div className="flex h-full justify-center">
-              <div className="flex flex-col justify-center text-center">
+            <div className="flex h-full justify-center md:justify-start">
+              <div className="flex flex-col justify-center text-center md:text-left">
                 <button
                   onClick={handleBackButton}
-                  className="mb-4 flex items-center justify-center rounded-lg border border-[#ffffcc] px-2"
+                  className="mb-4 flex w-fit items-center justify-center rounded-lg border border-[#ffffcc] px-2"
                 >
                   <BackIcon className="h-5 w-5 fill-[#ffffcc]"></BackIcon>
                   <span className="ml-2 text-lg font-semibold">
                     {curEatery.name}
                   </span>
                 </button>
-                <h1 className="mb-2 text-5xl font-semibold lg:text-7xl">
+                <h1 className="mb-2 text-3xl font-semibold lg:text-5xl">
                   {curStall.name}
                 </h1>
-                <span className="text-base font-medium">
-                  Food Type: {curStall.foodType}
-                </span>
-                <span className="text-base font-medium">
-                  Opening Hours: {curStall.openingHours}
-                </span>
+                <div className="flex flex-col text-base font-medium lg:flex-row lg:gap-4 lg:text-xl">
+                  <span className="">Food Type: {curStall.foodType}</span>
+                  <span className="">
+                    Opening Hours: {curStall.openingHours}
+                  </span>
+                </div>
               </div>
             </div>
           )}
