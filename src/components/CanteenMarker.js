@@ -24,12 +24,15 @@ function CanteenMarker(props) {
     if (zoomBoolean !== map.options.scrollWheelZoom) {
       map.options.scrollWheelZoom = zoomBoolean;
       map.options.doubleClickZoom = zoomBoolean;
+      map.options.dragging = zoomBoolean;
       if (zoomBoolean) {
         map.scrollWheelZoom.enable();
         map.doubleClickZoom.enable();
+        map.dragging.enable();
       } else {
         map.scrollWheelZoom.disable();
         map.doubleClickZoom.disable();
+        map.dragging.disable();
       }
     }
   }
@@ -38,12 +41,14 @@ function CanteenMarker(props) {
     setIsOpenPopup(true);
     getCurCanteenDetails();
     setBackgroundZoom(false);
+    document.body.style.overflow = "hidden";
   }
 
   function closeCanteenPopup() {
     setIsOpenPopup(false);
     dispatch({ type: "REMOVE_CUR_EATERY", payload: null });
     setBackgroundZoom(true);
+    document.body.style.overflow = "auto";
   }
 
   async function getCurCanteenDetails() {

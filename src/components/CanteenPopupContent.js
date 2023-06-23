@@ -30,7 +30,7 @@ function CanteenPopupContent(props) {
             className="h-2/5 w-full bg-cover bg-center text-center md:text-left"
             style={{ backgroundImage: `url(${curEatery?.bgImageUrl})` }}
           >
-            <div className="h-full bg-black bg-black/70 p-10 text-[#FFFFE7] md:bg-transparent md:bg-gradient-to-r md:from-black md:from-20% md:opacity-100">
+            <div className="h-full bg-black bg-black/70 p-10 text-[#ffffcc] md:bg-transparent md:bg-gradient-to-r md:from-black md:from-20% md:opacity-100">
               {curEatery && (
                 <div className="flex h-full items-center">
                   <div>
@@ -59,9 +59,9 @@ function CanteenPopupContent(props) {
               )}
             </div>
           </header>
-          <div>
+          <main className="h-3/5 w-full overflow-y-scroll">
             <StallsListSection stalls={curEatery?.stalls}></StallsListSection>
-          </div>
+          </main>
         </div>
       )}
     </div>

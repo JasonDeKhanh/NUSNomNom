@@ -4,13 +4,9 @@ import StallListEl from "./StallListEl";
 function StallsListSection(props) {
   const { stalls } = props;
   return (
-    <div>
+    <div className="md:flex md:flex-wrap">
       {stalls &&
-        stalls.map((stall) => (
-          <div key={stall._id}>
-            <StallListEl stall={stall}></StallListEl>
-          </div>
-        ))}
+        stalls.map((stall) => <StallListEl stall={stall}></StallListEl>)}
     </div>
   );
 }

@@ -3,7 +3,7 @@
 
 .leaflet-container {
   width: 100vw;
-  height: 100vh;
+  height: 100svh;
   background-color: #ffffcc;
   font-family: "Quicksand";
 }
@@ -17,6 +17,23 @@
 .leaflet-top,
 .leaflet-bottom {
   z-index: 0 !important;
+}
+
+/* Scrollbar style Chrome, Edge, Safari */
+*::-webkit-scrollbar {
+  width: 0.75rem;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #d1d1a7; /*var(--secondary); */
+  border-radius: 14px;
+  border: 0.15rem solid rgb(248 250 252);
 }
 
 @tailwind utilities;
