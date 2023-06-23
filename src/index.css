@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 
+body {
+  background-color: #f9c03f;
+}
+
 .leaflet-container {
   width: 100vw;
   height: 100svh;

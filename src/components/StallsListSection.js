@@ -6,7 +6,9 @@ function StallsListSection(props) {
   return (
     <div className="md:flex md:flex-wrap">
       {stalls &&
-        stalls.map((stall) => <StallListEl stall={stall}></StallListEl>)}
+        stalls.map((stall) => (
+          <StallListEl key={stall._id} stall={stall}></StallListEl>
+        ))}
     </div>
   );
 }

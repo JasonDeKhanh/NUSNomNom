@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import { ReactComponent as BackIcon } from "../icons/BackIcon.svg";
-import { ReactComponent as CloseIcon } from "../icons/CloseIcon.svg";
 
 import { useCampusesContext } from "../hooks/useCampusesContext";
 import Menu from "./Menu";
 
-function StallPopupContent(props) {
+function StallPopupContent() {
   const { curEatery, curStall, dispatch } = useCampusesContext();
 
   // fetch menu!
