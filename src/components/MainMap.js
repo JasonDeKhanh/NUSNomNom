@@ -7,7 +7,7 @@ import CanteenMarker from "./CanteenMarker";
 import RestaurantMarker from "./RestaurantMarker";
 
 function MainMap(props) {
-  const { curCampus, dispatch } = useCampusesContext();
+  const { curCampus } = useCampusesContext();
 
   const campusFolderPath =
     "../maps/" + curCampus?.mapFolderName + "/{z}/{x}/{y}.png";
@@ -55,8 +55,8 @@ function MainMap(props) {
           ></RestaurantMarker>
         ))}
         <div className="absolute bottom-0 z-10">
-          Vectors and icons by{" "}
-          <a href="https://www.svgrepo.com" target="_blank">
+          Some vectors and icons by{" "}
+          <a href="https://www.svgrepo.com" target="_blank" rel="noreferrer">
             SVG Repo
           </a>
         </div>

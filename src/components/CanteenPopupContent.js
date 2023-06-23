@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useCampusesContext } from "../hooks/useCampusesContext";
-import StallListEl from "./StallListEl";
 import StallsListSection from "./StallsListSection";
 
 function CanteenPopupContent(props) {
-  const { open, onClose, canteen } = props;
-  const { curEatery, dispatch } = useCampusesContext();
+  const { open } = props;
+  const { curEatery } = useCampusesContext();
 
   // Fetch canteen details and stalls list
   // useEffect(() => {

@@ -12,7 +12,7 @@ function StallListEl(props) {
   return (
     <div
       onClick={handleOnClickStall}
-      className="mx-4 my-4 h-40 overflow-hidden rounded-2xl bg-[#ffffcc] hover:bg-[#CCCC98] 
+      className="mx-4 my-4 h-40 cursor-pointer overflow-hidden rounded-2xl bg-[#ffffcc] hover:bg-[#CCCC98] 
       md:mx-2 md:min-w-min md:max-w-full md:shrink-0 md:grow md:basis-1/3 xl:basis-1/4"
     >
       <div className="mx-2 flex h-full">
@@ -23,9 +23,11 @@ function StallListEl(props) {
           className="h-36 w-48 self-center rounded-lg object-cover"
         />
         <div className="ml-2 flex scroll-my-4 flex-col p-2">
-          <span className="text-lg font-bold">{stall.name}</span>
-          <span className="text-base font-medium italic">{stall.foodType}</span>
-          <span className="mt-1 text-sm font-medium">
+          <span className="text-lg font-bold lg:text-2xl">{stall.name}</span>
+          <span className="text-base font-medium italic lg:text-lg lg:font-semibold">
+            {stall.foodType}
+          </span>
+          <span className="mt-1 text-sm font-medium lg:text-base lg:font-semibold">
             Opening Hours:
             <br />
             {stall.openingHours}

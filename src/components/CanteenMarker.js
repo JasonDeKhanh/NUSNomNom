@@ -15,7 +15,7 @@ const canteenIcon = new L.icon({
 
 function CanteenMarker(props) {
   const { canteen } = props;
-  const { curEatery, curStall, dispatch } = useCampusesContext();
+  const { curStall, dispatch } = useCampusesContext();
 
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
