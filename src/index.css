@@ -23,6 +23,7 @@ body {
   right: 0;
   left: 0;
   top: 0;
+  z-index: 0 !important;
 }
 
 .leaflet-bottom {
@@ -32,7 +33,6 @@ body {
 /* Leaflet zoom control thingy */
 .leaflet-control-zoom {
   position: absolute;
-  z-index: 10;
   bottom: 1rem;
   right: 1rem;
 }
