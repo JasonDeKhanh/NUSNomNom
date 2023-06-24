@@ -3,6 +3,7 @@ import { useCampusesContext } from "../hooks/useCampusesContext";
 import Menu from "./Menu";
 
 import { ReactComponent as ArrowDownIcon } from "../icons/ArrowDown.svg";
+import { ReactComponent as LoadingIcon } from "../icons/LoadingSpinner.svg";
 
 function RestaurantPopupContent(props) {
   const { open, curMenu } = props;
@@ -81,10 +82,18 @@ function RestaurantPopupContent(props) {
             </div>
           </header>
           <main ref={menuRef} className="h-4/6 w-full overflow-y-scroll">
-            <Menu menu={curMenu}></Menu>
-            {showScrollIndicator && (
-              <div className="absolute bottom-0 mb-1 flex w-full justify-center">
-                <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+            {!curMenu ? (
+              <div className="flex h-full items-center justify-center">
+                <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>
+              </div>
+            ) : (
+              <div>
+                <Menu menu={curMenu}></Menu>
+                {showScrollIndicator && (
+                  <div className="absolute bottom-0 mb-1 flex w-full justify-center">
+                    <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+                  </div>
+                )}
               </div>
             )}
           </main>

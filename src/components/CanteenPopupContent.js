@@ -3,10 +3,13 @@ import { useCampusesContext } from "../hooks/useCampusesContext";
 import StallsListSection from "./StallsListSection";
 
 import { ReactComponent as ArrowDownIcon } from "../icons/ArrowDown.svg";
+import { ReactComponent as LoadingIcon } from "../icons/LoadingSpinner.svg";
 
 function CanteenPopupContent(props) {
   const { open, canteen } = props;
   const { curEatery } = useCampusesContext();
+
+  const [isLoading, setIsLoading] = useState(true);
 
   // Handle scroll indicator
   const stallsRef = useRef(null);
@@ -79,10 +82,20 @@ function CanteenPopupContent(props) {
             </div>
           </header>
           <main ref={stallsRef} className="h-3/5 w-full overflow-y-scroll">
-            <StallsListSection stalls={curEatery?.stalls}></StallsListSection>
-            {showScrollIndicator && (
-              <div className="absolute bottom-0 mb-1 flex w-full justify-center">
-                <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+            {curEatery ? (
+              <div>
+                <StallsListSection
+                  stalls={curEatery?.stalls}
+                ></StallsListSection>
+                {showScrollIndicator && (
+                  <div className="absolute bottom-0 mb-1 flex w-full justify-center">
+                    <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="flex h-full items-center justify-center">
+                <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>
               </div>
             )}
           </main>
