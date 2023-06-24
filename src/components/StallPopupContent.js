@@ -1,12 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { ReactComponent as BackIcon } from "../icons/BackIcon.svg";
 
 import { useCampusesContext } from "../hooks/useCampusesContext";
 import Menu from "./Menu";
 
+import { ReactComponent as ArrowDownIcon } from "../icons/ArrowDown.svg";
+
 function StallPopupContent() {
   const { curEatery, curStall, dispatch } = useCampusesContext();
+
+  // Handle scroll indicator
+  const menuRef = useRef(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
+  const isComponentMounted = useRef(true); // prevent bug where popup is closed too quickly after scrolling
+
+  const handleScroll = () => {
+    if (!isComponentMounted.current) return;
+
+    // scrollHeight and clientHeight and scrollTop are all HTML properties of DOM elements, already given
+    const { scrollTop, scrollHeight, clientHeight } = menuRef.current;
+    const isScrollable = scrollHeight > clientHeight;
+    const isAtBottom = scrollTop + clientHeight >= scrollHeight - 10; // Add a small buffer to determine the bottom
+
+    setShowScrollIndicator(isScrollable && !isAtBottom);
+  };
+
+  useEffect(() => {
+    if (!menuRef.current) return; // Add null check
+
+    const menuElement = menuRef.current;
+
+    if (menuElement.scrollHeight > menuElement.clientHeight) {
+      setShowScrollIndicator(true);
+    }
+
+    menuRef.current.addEventListener("scroll", handleScroll);
+    return () => {
+      isComponentMounted.current = false;
+      if (!menuRef.current) return; // Add null check
+      menuRef.current.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // fetch menu!
   const [curMenu, setCurMenu] = useState(null);
@@ -62,8 +97,13 @@ function StallPopupContent() {
           )}
         </div>
       </header>
-      <main className="h-4/6 w-full overflow-y-scroll">
+      <main ref={menuRef} className="h-4/6 w-full overflow-y-scroll">
         <Menu menu={curMenu}></Menu>
+        {showScrollIndicator && (
+          <div className="absolute bottom-0 mb-1 flex w-full justify-center">
+            <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+          </div>
+        )}
       </main>
     </div>
   );

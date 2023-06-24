@@ -102,6 +102,17 @@ body {
   border-bottom-right-radius: 10px;
 }
 
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  font: bold 2rem "Quicksand";
+  text-indent: 1px;
+}
+
+.leaflet-touch .leaflet-control-zoom-in,
+.leaflet-touch .leaflet-control-zoom-out {
+  font-size: 1.75rem;
+}
+
 /* Scrollbar style Chrome, Edge, Safari */
 *::-webkit-scrollbar {
   width: 0.75rem;

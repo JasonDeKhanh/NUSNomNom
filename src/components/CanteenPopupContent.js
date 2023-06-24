@@ -1,25 +1,45 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useCampusesContext } from "../hooks/useCampusesContext";
 import StallsListSection from "./StallsListSection";
+
+import { ReactComponent as ArrowDownIcon } from "../icons/ArrowDown.svg";
 
 function CanteenPopupContent(props) {
   const { open, canteen } = props;
   const { curEatery } = useCampusesContext();
 
-  // Fetch canteen details and stalls list
-  // useEffect(() => {
-  //   const fetchCanteenDetails = async () => {
-  //     const apiString = "/api/canteens/" + canteen._id;
-  //     const response = await fetch(apiString);
-  //     const json = await response.json();
+  // Handle scroll indicator
+  const stallsRef = useRef(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
+  const isComponentMounted = useRef(true); // prevent bug where popup is closed too quickly after scrolling
 
-  //     if (response.ok) {
-  //       dispatch({ type: "SET_CUR_EATERY", payload: json });
-  //     }
-  //   };
+  const handleScroll = () => {
+    if (!isComponentMounted.current) return;
 
-  //   fetchCanteenDetails();
-  // }, []);
+    // scrollHeight and clientHeight and scrollTop are all HTML properties of DOM elements, already given
+    const { scrollTop, scrollHeight, clientHeight } = stallsRef.current;
+    const isScrollable = scrollHeight > clientHeight;
+    const isAtBottom = scrollTop + clientHeight >= scrollHeight - 10; // Add a small buffer to determine the bottom
+
+    setShowScrollIndicator(isScrollable && !isAtBottom);
+  };
+
+  useEffect(() => {
+    if (!stallsRef.current) return; // Add null check
+
+    const stallsElement = stallsRef.current;
+
+    if (stallsElement.scrollHeight > stallsElement.clientHeight) {
+      setShowScrollIndicator(true);
+    }
+
+    stallsRef.current.addEventListener("scroll", handleScroll);
+    return () => {
+      isComponentMounted.current = false;
+      if (!stallsRef.current) return; // Add null check
+      stallsRef.current.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="h-full">
@@ -58,8 +78,13 @@ function CanteenPopupContent(props) {
               )}
             </div>
           </header>
-          <main className="h-3/5 w-full overflow-y-scroll">
+          <main ref={stallsRef} className="h-3/5 w-full overflow-y-scroll">
             <StallsListSection stalls={curEatery?.stalls}></StallsListSection>
+            {showScrollIndicator && (
+              <div className="absolute bottom-0 mb-1 flex w-full justify-center">
+                <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+              </div>
+            )}
           </main>
         </div>
       )}
