@@ -5,7 +5,7 @@ function MenuSection(props) {
   const { menuSection } = props;
   return (
     <main className="mb-6">
-      <div className="text-xl font-bold md:text-2xl">
+      <div className="text-lg font-bold md:text-xl">
         {menuSection.sectionName}
       </div>
       <hr className="mb-1 border border-[1px] border-[#F9C03F]" />

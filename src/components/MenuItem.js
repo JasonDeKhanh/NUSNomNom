@@ -7,14 +7,14 @@ function MenuItem(props) {
       {menuItem && (
         <div className="mb-3 flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="text-sm font-medium md:text-base lg:text-lg">
+            <span className="text-sm font-medium md:text-base">
               {menuItem.foodName}
             </span>
-            <span className="text-xs font-normal italic md:text-sm lg:text-base">
+            <span className="text-xs font-normal italic md:text-sm">
               {menuItem.foodDesc}
             </span>
           </div>
-          <span className="text-xl font-normal md:text-2xl">
+          <span className="text-lg font-normal md:text-xl">
             {menuItem.price.toFixed(2)}
           </span>
         </div>

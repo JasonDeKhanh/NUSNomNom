@@ -72,9 +72,8 @@ function CanteenMarker(props) {
           <PopupBox open={isOpenPopup} onClose={closeCanteenPopup}>
             {!curStall ? (
               <CanteenPopupContent
-                open={isOpenPopup}
-                onClose={closeCanteenPopup}
                 canteen={canteen}
+                open={isOpenPopup}
               ></CanteenPopupContent>
             ) : (
               <StallPopupContent></StallPopupContent>
