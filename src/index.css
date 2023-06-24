@@ -18,9 +18,88 @@ body {
 .leaflet-pane {
   z-index: 0 !important;
 }
-.leaflet-top,
+.leaflet-top {
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
 .leaflet-bottom {
   z-index: 0 !important;
+}
+
+/* Leaflet zoom control thingy */
+.leaflet-control-zoom {
+  position: absolute;
+  z-index: 10;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* the zoom buttons */
+.leaflet-bar {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  border-radius: 10px;
+}
+.leaflet-bar a {
+  /* MAIN ONE FOR THE ZOOM IN OUT BUTTONS */
+  background-color: #f9c03f;
+  border: 1px solid #f9c03f;
+  /* width: 26px;
+  height: 26px;
+  line-height: 26px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* text-align: center;
+  text-decoration: none; */
+  color: #ffffcc; /* Color of plus minus sign */
+}
+.leaflet-bar a:hover {
+  background-color: #d3a335;
+  border: 1px solid #d3a335;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffcc; /* Color of plus minus sign */
+}
+.leaflet-bar a:focus {
+  background-color: #d3a335;
+  border: 1px solid #d3a335;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffcc; /* Color of plus minus sign */
+}
+.leaflet-bar a.leaflet-disabled {
+  cursor: default;
+  background-color: #dcbc71;
+  border: 1px solid #dcbc71;
+  color: #e9e3d7;
+}
+
+.leaflet-touch .leaflet-bar a {
+  /* size of zoom in zoom out */
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 30px;
+}
+
+.leaflet-touch .leaflet-bar {
+  border: 1px solid #ffffcc;
+  border-radius: 10px;
+  /* background-color: #f9c03f; */
+}
+
+.leaflet-touch .leaflet-bar a:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.leaflet-touch .leaflet-bar a:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* Scrollbar style Chrome, Edge, Safari */

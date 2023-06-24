@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { MapContainer, TileLayer } from "react-leaflet";
+import { AttributionControl, MapContainer, TileLayer } from "react-leaflet";
 
 import { useCampusesContext } from "../hooks/useCampusesContext";
 import CanteenMarker from "./CanteenMarker";
@@ -43,6 +43,7 @@ function MainMap(props) {
         ]}
         minZoom={1}
         maxZoom={5}
+        attributionControl={false}
       >
         <TileLayer noWrap={true} attribution="" url={campusFolderPath} />
         {curCanteens.map((canteen) => (
@@ -54,12 +55,13 @@ function MainMap(props) {
             restaurant={restaurant}
           ></RestaurantMarker>
         ))}
-        <div className="absolute bottom-0 z-10">
+        <div className="absolute bottom-0 left-14 z-10">
           Some vectors and icons by{" "}
           <a href="https://www.svgrepo.com" target="_blank" rel="noreferrer">
             SVG Repo
           </a>
         </div>
+        <AttributionControl position="bottomleft" />
       </MapContainer>
     </div>
   );
