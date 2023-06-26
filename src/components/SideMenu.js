@@ -5,7 +5,7 @@ function SideMenu(props) {
   return (
     <div>
       {open && (
-        <div className="relative left-0 top-0 z-10 h-[100svh] w-64 border-black bg-white">
+        <div className="relative left-0 top-0 z-10 h-[100svh] w-48 border-black bg-white md:w-64">
           SideMenu
           <button className="absolute right-0" onClick={onClose}>
             Close Menu
