@@ -67,7 +67,7 @@ function StallPopupContent() {
   return (
     <div className="h-full">
       <header
-        className="h-2/6 w-full bg-cover bg-center md:text-left"
+        className="h-2/6 w-full bg-cover bg-center md:text-left landscape:md:max-lg:h-2/5"
         style={{ backgroundImage: `url(${curStall?.stallImageUrl})` }}
       >
         <div className="h-full bg-black bg-black/70 p-10 text-[#ffffcc] md:bg-transparent md:bg-gradient-to-r md:from-black md:from-20% md:opacity-100">
@@ -76,17 +76,17 @@ function StallPopupContent() {
               <div className="flex flex-col justify-center text-center md:text-left">
                 <button
                   onClick={handleBackButton}
-                  className="mb-4 flex w-fit items-center justify-center rounded-lg border border-[#ffffcc] px-2"
+                  className="mb-4 flex w-fit items-center justify-center rounded-lg border border-[#ffffcc] px-2 landscape:md:max-lg:mb-2"
                 >
-                  <BackIcon className="h-5 w-5 fill-[#ffffcc]"></BackIcon>
-                  <span className="ml-2 text-lg font-semibold">
+                  <BackIcon className="h-5 w-5 fill-[#ffffcc] landscape:md:max-lg:h-4"></BackIcon>
+                  <span className="ml-2 text-lg font-semibold landscape:md:max-lg:text-sm">
                     {curEatery.name}
                   </span>
                 </button>
-                <h1 className="mb-2 text-3xl font-semibold lg:text-5xl">
+                <h1 className="mb-2 text-3xl font-semibold lg:text-5xl landscape:md:max-lg:text-xl">
                   {curStall.name}
                 </h1>
-                <div className="flex flex-col text-base font-normal lg:flex-row lg:gap-4">
+                <div className="flex flex-col text-base font-normal lg:flex-row lg:gap-4 landscape:md:max-lg:text-xs">
                   <span className="">Food Type: {curStall.foodType}</span>
                   <span className="">
                     Opening Hours: {curStall.openingHours}
@@ -97,7 +97,10 @@ function StallPopupContent() {
           )}
         </div>
       </header>
-      <main ref={menuRef} className="h-4/6 w-full overflow-y-scroll">
+      <main
+        ref={menuRef}
+        className="h-4/6 w-full overflow-y-scroll landscape:md:max-lg:h-3/5"
+      >
         {!curMenu ? (
           <div className="flex h-full items-center justify-center">
             <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>

@@ -48,7 +48,7 @@ function RestaurantPopupContent(props) {
       {open && (
         <div className="h-full">
           <header
-            className="h-2/6 w-full bg-cover bg-center text-center md:text-left"
+            className="h-2/6 w-full bg-cover bg-center text-center md:text-left landscape:md:max-lg:h-2/5"
             style={{ backgroundImage: `url(${curEatery?.bgImageUrl})` }}
           >
             <div className="h-full bg-black bg-black/70 p-10 text-[#ffffcc] md:bg-transparent md:bg-gradient-to-r md:from-black md:from-20% md:opacity-100">
@@ -58,7 +58,7 @@ function RestaurantPopupContent(props) {
                     <h1 className="mb-2 text-3xl font-semibold lg:text-5xl">
                       {curEatery.name}
                     </h1>
-                    <div className="flex flex-col text-sm font-normal">
+                    <div className="flex flex-col text-sm font-normal landscape:md:max-lg:text-xs">
                       <span>Food type: {curEatery.foodType}</span>
                       <span>Opening hours: {curEatery.openingHours}</span>
                       <span>
@@ -81,7 +81,10 @@ function RestaurantPopupContent(props) {
               )}
             </div>
           </header>
-          <main ref={menuRef} className="h-4/6 w-full overflow-y-scroll">
+          <main
+            ref={menuRef}
+            className="h-4/6 w-full overflow-y-scroll landscape:md:max-lg:h-3/5"
+          >
             {!curMenu ? (
               <div className="flex h-full items-center justify-center">
                 <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>

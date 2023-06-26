@@ -5,6 +5,8 @@ import { AttributionControl, MapContainer, TileLayer } from "react-leaflet";
 import { useCampusesContext } from "../hooks/useCampusesContext";
 import CanteenMarker from "./CanteenMarker";
 import RestaurantMarker from "./RestaurantMarker";
+import SideMenu from "./SideMenu";
+import HeaderBar from "./HeaderBar";
 
 function MainMap(props) {
   const { curCampus } = useCampusesContext();
@@ -33,36 +35,32 @@ function MainMap(props) {
   }, [curCampus]);
 
   return (
-    <div className="h-full w-full">
-      <MapContainer
-        center={[35, -100]}
-        zoom={3}
-        maxBounds={[
-          [120, 20],
-          [-50, -200],
-        ]}
-        minZoom={1}
-        maxZoom={5}
-        attributionControl={false}
-      >
-        <TileLayer noWrap={true} attribution="" url={campusFolderPath} />
-        {curCanteens.map((canteen) => (
-          <CanteenMarker key={canteen._id} canteen={canteen}></CanteenMarker>
-        ))}
-        {curRestaurants.map((restaurant) => (
-          <RestaurantMarker
-            key={restaurant._id}
-            restaurant={restaurant}
-          ></RestaurantMarker>
-        ))}
-        <div className="absolute bottom-0 left-14 z-10">
-          Some vectors and icons by{" "}
-          <a href="https://www.svgrepo.com" target="_blank" rel="noreferrer">
-            SVG Repo
-          </a>
-        </div>
-        <AttributionControl position="bottomleft" />
-      </MapContainer>
+    <div>
+      <div className="top-0 z-[-1] h-full w-full">
+        <MapContainer
+          center={[35, -100]}
+          zoom={3}
+          maxBounds={[
+            [120, 20],
+            [-50, -200],
+          ]}
+          minZoom={1}
+          maxZoom={5}
+          attributionControl={false}
+        >
+          <TileLayer noWrap={true} attribution="" url={campusFolderPath} />
+          {curCanteens.map((canteen) => (
+            <CanteenMarker key={canteen._id} canteen={canteen}></CanteenMarker>
+          ))}
+          {curRestaurants.map((restaurant) => (
+            <RestaurantMarker
+              key={restaurant._id}
+              restaurant={restaurant}
+            ></RestaurantMarker>
+          ))}
+          <AttributionControl position="bottomleft" />
+        </MapContainer>
+      </div>
     </div>
   );
 }

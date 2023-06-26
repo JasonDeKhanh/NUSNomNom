@@ -56,10 +56,10 @@ function CanteenPopupContent(props) {
               {canteen && (
                 <div className="flex h-full items-center justify-center md:justify-start">
                   <div>
-                    <h1 className="mb-2 text-3xl font-semibold lg:text-5xl">
+                    <h1 className="mb-2 text-3xl font-semibold lg:text-5xl landscape:md:max-lg:text-xl">
                       {canteen.name}
                     </h1>
-                    <div className="flex flex-col text-base font-normal">
+                    <div className="flex flex-col text-base font-normal landscape:md:max-lg:text-xs">
                       <span>Opening hours: {canteen.openingHours}</span>
                       <span>
                         Near:{" "}

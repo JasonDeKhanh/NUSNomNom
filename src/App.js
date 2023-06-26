@@ -1,6 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MainMap from "./components/MainMap";
 import { useCampusesContext } from "./hooks/useCampusesContext";
+
+import SideMenu from "./components/SideMenu";
+import HeaderBar from "./components/HeaderBar";
 
 function App() {
   const { dispatch } = useCampusesContext();
@@ -18,8 +21,21 @@ function App() {
     fetchAllCampuses();
   }, []);
 
+  // Side Menu
+  const [isOpenSideMenu, setIsOpenSideMenu] = useState(false);
+
   return (
     <div className="App">
+      <div className="absolute top-0 flex justify-end bg-red-200">
+        <SideMenu
+          open={isOpenSideMenu}
+          onClose={() => setIsOpenSideMenu(false)}
+        ></SideMenu>
+        <HeaderBar
+          isOpenSideMenu={isOpenSideMenu}
+          setIsOpenSideMenu={setIsOpenSideMenu}
+        ></HeaderBar>
+      </div>
       <MainMap></MainMap>
     </div>
   );

@@ -10,7 +10,12 @@ export const campusesReducer = (state, action) => {
       );
       return { campuses: action.payload, curCampus: krcampus };
     case "SET_CUR_CAMPUS":
-      return {};
+      return {
+        campuses: state.campuses,
+        curCampus: action.payload,
+        curEatery: null,
+        curStall: null,
+      };
     case "REMOVE_CUR_EATERY":
       return {
         campuses: state.campuses,
