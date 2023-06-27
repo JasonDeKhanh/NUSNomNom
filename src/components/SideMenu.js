@@ -5,11 +5,13 @@ import { ReactComponent as AboutIcon } from "../icons/AboutIcon.svg";
 import { ReactComponent as QuestionIcon } from "../icons/QuestionIcon.svg";
 import PopupBox from "./PopupBox";
 import AboutPage from "./AboutPage";
+import InstructionsPage from "./InstructionsPage";
 
 function SideMenu(props) {
   const { open, onClose } = props;
 
   const [isOpenAbout, setIsOpenAbout] = useState(false);
+  const [isOpenInstructions, setIsOpenInstructions] = useState(false);
 
   return (
     <side>
@@ -19,6 +21,13 @@ function SideMenu(props) {
         isMenuPage={false}
       >
         <AboutPage />
+      </PopupBox>
+      <PopupBox
+        open={isOpenInstructions}
+        onClose={() => setIsOpenInstructions(false)}
+        isMenuPage={false}
+      >
+        <InstructionsPage />
       </PopupBox>
       {open && (
         <div className="relative left-0 top-0 z-10 h-[100svh] w-48 border border-r-[#F9C03FCC] bg-[#FFFFCC] md:w-56">
@@ -37,7 +46,10 @@ function SideMenu(props) {
               <span className="mx-2 ">About</span>
             </div>
 
-            <div className="flex cursor-pointer items-center rounded-md px-1 py-0.5 hover:bg-[#F5E2B7] active:bg-[#D4C4A0]">
+            <div
+              className="flex cursor-pointer items-center rounded-md px-1 py-0.5 hover:bg-[#F5E2B7] active:bg-[#D4C4A0]"
+              onClick={() => setIsOpenInstructions(true)}
+            >
               <QuestionIcon className="h-4 w-4 fill-[#875D00]"></QuestionIcon>
               <span className="mx-2">Instructions</span>
             </div>
