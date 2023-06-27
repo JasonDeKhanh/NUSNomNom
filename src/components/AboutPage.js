@@ -54,9 +54,12 @@ function AboutPage(props) {
         </p>
         <br />
       </div>
-      <span className="italic">
-        Dining options information last updated: 28/06/2023
-      </span>
+      <div>
+        <hr className="border-[#d3a335]" />
+        <span className="italic">
+          Dining options information last updated: 28/06/2023
+        </span>
+      </div>
     </main>
   );
 }
