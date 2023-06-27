@@ -22,20 +22,27 @@ function HeaderBar(props) {
         )}
       </div>
       <div className="h-10 w-64 rounded-3xl border border-[#FFFFCC] md:ml-4">
-        {curCampus && (
-          <select
-            onChange={handleChangeCurCampus}
-            className="h-full w-full rounded-3xl border border-2 border-[#f9c03f] bg-slate-50 px-4 font-semibold text-[#875D00] accent-[#875D00]"
-            defaultValue={curCampus}
-          >
-            {campuses &&
-              campuses.map((campus) => (
-                <option key={campus._id} value={JSON.stringify(campus)}>
-                  {campus.displayName}
-                </option>
-              ))}
-          </select>
-        )}
+        <div className="flex h-full w-full justify-center overflow-hidden rounded-3xl border border-2 border-[#f9c03f] bg-slate-50">
+          {curCampus && (
+            <select
+              onChange={handleChangeCurCampus}
+              className="h-full w-full bg-slate-50 px-4 font-semibold text-[#875D00] accent-[#875D00] 
+              focus:outline-none md:w-[95%]"
+              defaultValue={curCampus}
+            >
+              {campuses &&
+                campuses.map((campus) => (
+                  <option
+                    className="rounded border bg-slate-50"
+                    key={campus._id}
+                    value={JSON.stringify(campus)}
+                  >
+                    {campus.displayName}
+                  </option>
+                ))}
+            </select>
+          )}
+        </div>
       </div>
       <div className="mr-4 w-10">
         {/* dummy to center drop down on mobile */}
