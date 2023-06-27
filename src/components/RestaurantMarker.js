@@ -88,7 +88,11 @@ function RestaurantMarker(props) {
           icon={restaurantIcon}
           eventHandlers={{ click: openRestaurantPopup }}
         >
-          <PopupBox open={isOpenPopup} onClose={closeRestaurantPopup}>
+          <PopupBox
+            open={isOpenPopup}
+            onClose={closeRestaurantPopup}
+            isMenuPage={true}
+          >
             <RestaurantPopupContent
               curMenu={curMenu}
               open={isOpenPopup}

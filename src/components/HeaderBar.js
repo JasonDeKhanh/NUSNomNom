@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ReactComponent as MenuIcon } from "../icons/MenuIcon.svg";
+
 import { useCampusesContext } from "../hooks/useCampusesContext";
 
 function HeaderBar(props) {
@@ -33,7 +34,7 @@ function HeaderBar(props) {
               {campuses &&
                 campuses.map((campus) => (
                   <option
-                    className="rounded border bg-slate-50"
+                    className="bg-slate-50 font-medium"
                     key={campus._id}
                     value={JSON.stringify(campus)}
                   >

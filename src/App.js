@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="absolute top-0 flex bg-red-200">
+      <div className="absolute top-0 flex">
         <SideMenu
           open={isOpenSideMenu}
           onClose={() => setIsOpenSideMenu(false)}
