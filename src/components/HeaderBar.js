@@ -10,6 +10,7 @@ function HeaderBar(props) {
 
   function handleChangeCurCampus(e) {
     // console.log(JSON.parse(e.target.value));
+    // console.log(curCampus);
     dispatch({ type: "SET_CUR_CAMPUS", payload: JSON.parse(e.target.value) });
   }
 
@@ -29,7 +30,7 @@ function HeaderBar(props) {
               onChange={handleChangeCurCampus}
               className="h-full w-full bg-slate-50 px-4 font-semibold text-[#875D00] accent-[#875D00] 
               focus:outline-none md:w-[95%]"
-              defaultValue={curCampus}
+              value={JSON.stringify(curCampus)}
             >
               {campuses &&
                 campuses.map((campus) => (

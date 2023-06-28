@@ -14,7 +14,7 @@ function SideMenu(props) {
   const [isOpenInstructions, setIsOpenInstructions] = useState(false);
 
   return (
-    <side>
+    <div>
       <PopupBox
         open={isOpenAbout}
         onClose={() => setIsOpenAbout(false)}
@@ -56,7 +56,7 @@ function SideMenu(props) {
           </div>
         </div>
       )}
-    </side>
+    </div>
   );
 }
 
