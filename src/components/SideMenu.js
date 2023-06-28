@@ -27,7 +27,7 @@ function SideMenu(props) {
         onClose={() => setIsOpenInstructions(false)}
         isMenuPage={false}
       >
-        <InstructionsPage />
+        <InstructionsPage onClose={() => setIsOpenInstructions(false)} />
       </PopupBox>
       {open && (
         <div className="relative left-0 top-0 z-10 h-[100svh] w-48 border border-r-[#F9C03FCC] bg-[#FFFFCC] md:w-56">
