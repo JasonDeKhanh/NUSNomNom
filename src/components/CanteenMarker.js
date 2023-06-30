@@ -58,6 +58,11 @@ function CanteenMarker(props) {
 
     if (response.ok) {
       dispatch({ type: "SET_CUR_EATERY", payload: json });
+    } else {
+      dispatch({
+        type: "SET_CUR_EATERY",
+        payload: { stalls: [], error: json.error },
+      });
     }
   }
 

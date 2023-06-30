@@ -64,6 +64,8 @@ function RestaurantMarker(props) {
 
       if (response.ok) {
         setCurMenu(json);
+      } else {
+        setCurMenu({ error: json.error });
       }
     };
 

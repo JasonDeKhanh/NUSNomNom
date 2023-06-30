@@ -89,7 +89,7 @@ function RestaurantPopupContent(props) {
               <div className="flex h-full items-center justify-center">
                 <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>
               </div>
-            ) : (
+            ) : !curMenu.error ? (
               <div>
                 <Menu menu={curMenu}></Menu>
                 {showScrollIndicator && (
@@ -97,6 +97,11 @@ function RestaurantPopupContent(props) {
                     <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
                   </div>
                 )}
+              </div>
+            ) : (
+              <div className="flex w-full justify-center p-4 text-lg">
+                An error has occurred:&nbsp;
+                <span className="text-red-500">{curMenu.error}</span>
               </div>
             )}
           </main>
