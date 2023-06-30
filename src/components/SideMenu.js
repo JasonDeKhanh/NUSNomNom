@@ -29,8 +29,12 @@ function SideMenu(props) {
       >
         <InstructionsPage onClose={() => setIsOpenInstructions(false)} />
       </PopupBox>
-      {open && (
-        <div className="relative left-0 top-0 z-10 h-[100svh] w-48 border border-r-[#F9C03FCC] bg-[#FFFFCC] md:w-56">
+      {
+        <div
+          className={`transform ${
+            open ? "translate-x-0" : "-translate-x-full"
+          } relative left-0 top-0 z-10 h-[100svh] w-48 border border-r-[#F9C03FCC] bg-[#FFFFCC] transition transition-transform duration-300 duration-300 ease-in-out md:w-56 `}
+        >
           <button
             className="absolute right-2 mt-2 h-10 lg:right-4 lg:mt-4"
             onClick={onClose}
@@ -55,7 +59,7 @@ function SideMenu(props) {
             </div>
           </div>
         </div>
-      )}
+      }
     </div>
   );
 }

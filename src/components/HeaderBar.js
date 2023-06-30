@@ -15,7 +15,11 @@ function HeaderBar(props) {
   }
 
   return (
-    <div className="z-10 mt-2 flex h-min w-[100vw] items-center justify-between md:justify-start lg:mt-4">
+    <div
+      className={`${
+        isOpenSideMenu ? "translate-x-0" : "-translate-x-48 md:-translate-x-56"
+      } z-10 mt-2 flex h-min w-[100vw] items-center justify-between transition-all duration-300 md:justify-start lg:mt-4`}
+    >
       <div className="h-10">
         {!isOpenSideMenu && (
           <button className="ml-4" onClick={() => setIsOpenSideMenu(true)}>
