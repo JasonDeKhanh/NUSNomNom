@@ -102,13 +102,27 @@ function CanteenMarker(props) {
     };
   }, [desiredZoomLevelCanteen, map, canteenMarker]);
 
+  function onHoverMarker() {
+    canteenMarker?.getTooltip().setOpacity(1);
+  }
+
+  function onStopHoverMarker() {
+    if (!(map.getZoom() >= desiredZoomLevelCanteen)) {
+      canteenMarker?.getTooltip().setOpacity(0);
+    }
+  }
+
   return (
     <div>
       {canteen && (
         <Marker
           position={[canteen.yCoord, canteen.xCoord]}
           icon={canteenIcon}
-          eventHandlers={{ click: openCanteenPopup }}
+          eventHandlers={{
+            click: openCanteenPopup,
+            mouseover: onHoverMarker,
+            mouseout: onStopHoverMarker,
+          }}
           ref={canteenMarkerRef}
         >
           <Tooltip

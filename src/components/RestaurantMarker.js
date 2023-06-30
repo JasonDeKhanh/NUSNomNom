@@ -104,13 +104,27 @@ function RestaurantMarker(props) {
     };
   }, [desiredZoomLevelRestaurant, map, marker]);
 
+  function onHoverMarker() {
+    marker?.getTooltip().setOpacity(1);
+  }
+
+  function onStopHoverMarker() {
+    if (!(map.getZoom() >= desiredZoomLevelRestaurant)) {
+      marker?.getTooltip().setOpacity(0);
+    }
+  }
+
   return (
     <div>
       {restaurant && (
         <Marker
           position={[restaurant.yCoord, restaurant.xCoord]}
           icon={restaurantIcon}
-          eventHandlers={{ click: openRestaurantPopup }}
+          eventHandlers={{
+            click: openRestaurantPopup,
+            mouseover: onHoverMarker,
+            mouseout: onStopHoverMarker,
+          }}
           ref={restaurantMarkerRef}
         >
           <Tooltip
