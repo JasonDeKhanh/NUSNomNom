@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import { Marker, useMap } from "react-leaflet";
+import { Marker, Tooltip, useMap } from "react-leaflet";
 import L from "leaflet";
 import { useCampusesContext } from "../hooks/useCampusesContext";
 import PopupBox from "./PopupBox";
@@ -19,6 +19,7 @@ function RestaurantMarker(props) {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
 
   const map = useMap();
+
   function setBackgroundZoom(zoomBoolean) {
     if (zoomBoolean !== map.options.scrollWheelZoom) {
       map.options.scrollWheelZoom = zoomBoolean;
@@ -47,18 +48,7 @@ function RestaurantMarker(props) {
     setIsOpenPopup(false);
     dispatch({ type: "REMOVE_CUR_EATERY", payload: null });
     setBackgroundZoom(true);
-    document.body.style.overflow = "auto";
   }
-
-  // async function getCurRestaurantDetails() {
-  //   const apiString = "/api/restaurants/" + restaurant._id;
-  //   const response = await fetch(apiString);
-  //   const json = await response.json();
-
-  //   if (response.ok) {
-  //     dispatch({ type: "SET_CUR_EATERY", payload: json });
-  //   }
-  // }
 
   function setCurRestaurant() {
     dispatch({ type: "SET_CUR_EATERY", payload: restaurant });
@@ -80,6 +70,38 @@ function RestaurantMarker(props) {
     fetchRestaurantMenu();
   }, []);
 
+  // Show or hide tooltip (marker label)
+  const restaurantMarkerRef = useRef(null);
+  const desiredZoomLevelRestaurant = 5;
+  const marker = restaurantMarkerRef.current;
+  useEffect(() => {
+    const updateTooltipVisibility = () => {
+      if (marker && map) {
+        const currentZoomLevel = map.getZoom();
+
+        // Show the tooltip if the current zoom level is equal to or greater than the desired zoom level
+        if (currentZoomLevel >= desiredZoomLevelRestaurant) {
+          marker.getTooltip().setOpacity(1);
+        } else {
+          marker.getTooltip().setOpacity(0);
+        }
+      }
+    };
+
+    if (marker && map) {
+      marker.on("add", updateTooltipVisibility);
+      map.on("zoomend", updateTooltipVisibility);
+    }
+
+    // Cleanup function
+    return () => {
+      if (marker && map) {
+        marker.off("add", updateTooltipVisibility);
+        map.off("zoomend", updateTooltipVisibility);
+      }
+    };
+  }, [desiredZoomLevelRestaurant, map, marker]);
+
   return (
     <div>
       {restaurant && (
@@ -87,7 +109,17 @@ function RestaurantMarker(props) {
           position={[restaurant.yCoord, restaurant.xCoord]}
           icon={restaurantIcon}
           eventHandlers={{ click: openRestaurantPopup }}
+          ref={restaurantMarkerRef}
         >
+          <Tooltip
+            direction="center"
+            offset={[0, -55]}
+            className="bg-transparent stroke-[#FFFFCC] text-lg font-semibold text-[#2FA499] drop-shadow-glow"
+            permanent
+            opacity={0}
+          >
+            {restaurant.name}
+          </Tooltip>
           <PopupBox
             open={isOpenPopup}
             onClose={closeRestaurantPopup}
