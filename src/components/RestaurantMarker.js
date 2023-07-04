@@ -115,7 +115,7 @@ function RestaurantMarker(props) {
   }
 
   return (
-    <div>
+    <div className="">
       {restaurant && (
         <Marker
           position={[restaurant.yCoord, restaurant.xCoord]}
