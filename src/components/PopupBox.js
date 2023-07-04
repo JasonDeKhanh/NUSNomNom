@@ -10,12 +10,12 @@ function PopupBox(props) {
         <div
           className={`${
             open ? "visible bg-black/40" : "invisible"
-          } absolute z-20 h-[100svh] w-[100vw] transition-colors duration-200`}
+          } absolute z-20 h-[100svh] w-[100vw] transition-all duration-200 ease-in`}
         >
           <div
             className={`${
-              open ? "scale-100 opacity-100" : "scale-50 opacity-0"
-            } absolute left-1/2 top-1/2 z-50 h-[95svh] w-[95%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-xl bg-slate-50 transition-all duration-200 md:h-3/4 md:w-3/4`}
+              open ? "opacity-100" : "opacity-0"
+            } absolute left-1/2 top-1/2 z-50 h-[95svh] w-[95%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-xl bg-slate-50 transition-all duration-200 ease-in md:h-3/4 md:w-3/4`}
           >
             {isMenuPage ? (
               <button onClick={onClose} className="absolute right-2 top-2 z-10">

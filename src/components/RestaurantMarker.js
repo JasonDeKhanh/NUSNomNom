@@ -104,13 +104,33 @@ function RestaurantMarker(props) {
     };
   }, [desiredZoomLevelRestaurant, map, marker]);
 
+  // to ignore hover markers on mobile
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the threshold as per your needs
+    };
+
+    handleResize(); // Initial check on component mount
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   function onHoverMarker() {
-    marker?.getTooltip().setOpacity(1);
+    if (!isMobile) {
+      marker?.getTooltip().setOpacity(1);
+    }
   }
 
   function onStopHoverMarker() {
-    if (!(map.getZoom() >= desiredZoomLevelRestaurant)) {
-      marker?.getTooltip().setOpacity(0);
+    if (!isMobile) {
+      if (!(map.getZoom() >= desiredZoomLevelRestaurant)) {
+        marker?.getTooltip().setOpacity(0);
+      }
     }
   }
 

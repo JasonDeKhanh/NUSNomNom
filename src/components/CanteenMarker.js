@@ -102,13 +102,33 @@ function CanteenMarker(props) {
     };
   }, [desiredZoomLevelCanteen, map, canteenMarker]);
 
+  // to ignore hover markers on mobile
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust the threshold as per your needs
+    };
+
+    handleResize(); // Initial check on component mount
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   function onHoverMarker() {
-    canteenMarker?.getTooltip().setOpacity(1);
+    if (!isMobile) {
+      canteenMarker?.getTooltip().setOpacity(1);
+    }
   }
 
   function onStopHoverMarker() {
-    if (!(map.getZoom() >= desiredZoomLevelCanteen)) {
-      canteenMarker?.getTooltip().setOpacity(0);
+    if (!isMobile) {
+      if (!(map.getZoom() >= desiredZoomLevelCanteen)) {
+        canteenMarker?.getTooltip().setOpacity(0);
+      }
     }
   }
 
