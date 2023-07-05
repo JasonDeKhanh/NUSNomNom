@@ -80,9 +80,9 @@ function StallPopupContent() {
               <div className="flex flex-col justify-center text-center md:text-left">
                 <button
                   onClick={handleBackButton}
-                  className="mb-4 flex w-fit items-center justify-center rounded-lg border border-[#ffffcc] px-2 landscape:md:max-lg:mb-2"
+                  className="group mb-4 flex w-fit items-center justify-center rounded-lg border border-[#ffffcc] px-2 transition-all duration-150 ease-in hover:bg-[#FFFFCC] hover:text-black active:bg-[#CCCC98] landscape:md:max-lg:mb-2"
                 >
-                  <BackIcon className="h-5 w-5 fill-[#ffffcc] landscape:md:max-lg:h-4"></BackIcon>
+                  <BackIcon className="h-5 w-5 fill-[#ffffcc] transition-all duration-150 ease-in group-hover:fill-black landscape:md:max-lg:h-4"></BackIcon>
                   <span className="ml-2 text-lg font-semibold landscape:md:max-lg:text-sm">
                     {curEatery.name}
                   </span>

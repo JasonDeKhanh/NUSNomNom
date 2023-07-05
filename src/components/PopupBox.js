@@ -17,11 +17,11 @@ function PopupBox(props) {
       >
         {isMenuPage ? (
           <button onClick={onClose} className="absolute right-2 top-2 z-10">
-            <CloseIcon className="h-10 w-10 fill-[#ffffcc]"></CloseIcon>
+            <CloseIcon className="h-10 w-10 fill-[#ffffcc] transition-colors duration-100 ease-in hover:fill-[#CCCC98]"></CloseIcon>
           </button>
         ) : (
           <button onClick={onClose} className="absolute right-2 top-2 z-10">
-            <CloseIcon className="h-10 w-10 fill-[#f9c03f]"></CloseIcon>
+            <CloseIcon className="h-10 w-10 fill-[#f9c03f] transition-colors duration-100 ease-in hover:fill-[#d3a335]"></CloseIcon>
           </button>
         )}
         {props.children}
