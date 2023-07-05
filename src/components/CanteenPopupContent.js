@@ -83,24 +83,27 @@ function CanteenPopupContent(props) {
             <div
               className={`${
                 !curEatery
-                  ? "bg-white opacity-100"
+                  ? "bg-slate-50 opacity-100"
                   : "pointer-events-none bg-transparent opacity-0"
-              } absolute flex h-3/5 w-full items-center justify-center transition-all delay-100 duration-300 ease-in`}
+              } absolute flex h-full w-full items-center justify-center transition-all delay-100 duration-300 ease-in`}
             >
               <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>
             </div>
             {curEatery && (
-              <div>
+              <div className="h-full">
                 {curEatery?.stalls.length !== 0 ? (
-                  <div>
+                  <div className="h-full">
                     <StallsListSection
                       stalls={curEatery?.stalls}
                     ></StallsListSection>
-                    {showScrollIndicator && (
-                      <div className="absolute bottom-0 mb-1 flex w-full justify-center">
-                        <ArrowDownIcon className="h-5 animate-bounce drop-shadow-glow"></ArrowDownIcon>
-                      </div>
-                    )}
+
+                    <div
+                      className={`${
+                        showScrollIndicator ? "opacity-100" : "opacity-0"
+                      } absolute bottom-0 mb-1 flex w-full justify-center transition duration-150 ease-in`}
+                    >
+                      <ArrowDownIcon className="h-5 animate-bounce drop-shadow-glow"></ArrowDownIcon>
+                    </div>
                   </div>
                 ) : (
                   <div>

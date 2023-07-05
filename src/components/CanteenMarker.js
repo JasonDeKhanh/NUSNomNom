@@ -159,7 +159,7 @@ function CanteenMarker(props) {
             onClose={closeCanteenPopup}
             isMenuPage={true}
           >
-            <div className={`flex flex-col flex-nowrap`}>
+            <div className={`flex h-full flex-col`}>
               <div
                 className={`${
                   !curStall
