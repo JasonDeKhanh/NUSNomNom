@@ -14,6 +14,25 @@ body {
   font-family: "Quicksand";
 }
 
+/* Animate marker fading in */
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s; /* Firefox < 16 */
+  -ms-animation: fadein 3s; /* Internet Explorer */
+  -o-animation: fadein 3s; /* Opera < 12.1 */
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .leaflet-popup-tip-container {
   display: none;
 }

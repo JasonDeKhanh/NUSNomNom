@@ -150,7 +150,7 @@ function RestaurantMarker(props) {
           <Tooltip
             direction="center"
             offset={[0, -55]}
-            className="bg-transparent stroke-[#FFFFCC] text-lg font-semibold text-[#2FA499] drop-shadow-glow"
+            className="bg-transparent stroke-[#FFFFCC] text-lg font-semibold text-[#2FA499] drop-shadow-glow transition duration-200"
             permanent
             opacity={0}
           >

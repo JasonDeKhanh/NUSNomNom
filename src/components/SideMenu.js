@@ -43,7 +43,7 @@ function SideMenu(props) {
           </button>
           <div className="mt-14 flex flex-col px-2 text-xl font-medium text-[#875D00]">
             <div
-              className="flex cursor-pointer items-center rounded-md px-1 py-0.5 hover:bg-[#F5E2B7] active:bg-[#D4C4A0]"
+              className="flex cursor-pointer items-center rounded-md px-1 py-0.5 transition duration-100 ease-in hover:bg-[#F5E2B7] active:bg-[#D4C4A0]"
               onClick={() => setIsOpenAbout(true)}
             >
               <AboutIcon className="h-4 w-4 fill-[#875D00]"></AboutIcon>
@@ -51,7 +51,7 @@ function SideMenu(props) {
             </div>
 
             <div
-              className="flex cursor-pointer items-center rounded-md px-1 py-0.5 hover:bg-[#F5E2B7] active:bg-[#D4C4A0]"
+              className="flex cursor-pointer items-center rounded-md px-1 py-0.5 transition duration-100 ease-in hover:bg-[#F5E2B7] active:bg-[#D4C4A0]"
               onClick={() => setIsOpenInstructions(true)}
             >
               <QuestionIcon className="h-4 w-4 fill-[#875D00]"></QuestionIcon>
