@@ -103,23 +103,32 @@ function StallPopupContent() {
         ref={menuRef}
         className="h-4/6 w-full overflow-y-scroll landscape:md:max-lg:h-3/5"
       >
-        {!curMenu ? (
-          <div className="flex h-full items-center justify-center">
-            <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>
-          </div>
-        ) : !curMenu.error ? (
+        <div
+          className={`${
+            !curMenu
+              ? "bg-white opacity-100"
+              : "pointer-events-none bg-transparent opacity-0"
+          } absolute flex h-4/6 w-full items-center justify-center transition-all delay-100 duration-300 ease-in`}
+        >
+          <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>
+        </div>
+        {curMenu && (
           <div>
-            <Menu menu={curMenu}></Menu>
-            {showScrollIndicator && (
-              <div className="absolute bottom-0 mb-1 flex w-full justify-center">
-                <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+            {!curMenu.error ? (
+              <div>
+                <Menu menu={curMenu}></Menu>
+                {showScrollIndicator && (
+                  <div className="absolute bottom-0 mb-1 flex w-full justify-center">
+                    <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="flex w-full justify-center p-4 text-lg">
+                An error has occurred:&nbsp;
+                <span className="text-red-500">{curMenu.error}</span>
               </div>
             )}
-          </div>
-        ) : (
-          <div className="flex w-full justify-center p-4 text-lg">
-            An error has occurred:&nbsp;
-            <span className="text-red-500">{curMenu.error}</span>
           </div>
         )}
       </main>

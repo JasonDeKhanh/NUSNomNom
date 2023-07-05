@@ -80,27 +80,36 @@ function CanteenPopupContent(props) {
             </div>
           </header>
           <main ref={stallsRef} className="h-3/5 w-full overflow-y-scroll">
-            {curEatery ? (
-              curEatery?.stalls.length !== 0 ? (
-                <div>
-                  <StallsListSection
-                    stalls={curEatery?.stalls}
-                  ></StallsListSection>
-                  {showScrollIndicator && (
-                    <div className="absolute bottom-0 mb-1 flex w-full justify-center">
-                      <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+            <div
+              className={`${
+                !curEatery
+                  ? "bg-white opacity-100"
+                  : "pointer-events-none bg-transparent opacity-0"
+              } absolute flex h-3/5 w-full items-center justify-center transition-all delay-100 duration-300 ease-in`}
+            >
+              <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>
+            </div>
+            {curEatery && (
+              <div>
+                {curEatery?.stalls.length !== 0 ? (
+                  <div>
+                    <StallsListSection
+                      stalls={curEatery?.stalls}
+                    ></StallsListSection>
+                    {showScrollIndicator && (
+                      <div className="absolute bottom-0 mb-1 flex w-full justify-center">
+                        <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div>
+                    <div className="flex w-full justify-center p-4 text-lg">
+                      No stalls found or an error has occurred:&nbsp;
+                      <span className="text-red-500">{curEatery?.error}</span>
                     </div>
-                  )}
-                </div>
-              ) : (
-                <div className="flex w-full justify-center p-4 text-lg">
-                  No stalls found or an error has occurred:&nbsp;
-                  <span className="text-red-500">{curEatery?.error}</span>
-                </div>
-              )
-            ) : (
-              <div className="flex h-full items-center justify-center">
-                <LoadingIcon className="h-20 animate-spin fill-[#F9C03F]"></LoadingIcon>
+                  </div>
+                )}
               </div>
             )}
           </main>
