@@ -5,8 +5,7 @@ import { AttributionControl, MapContainer, TileLayer } from "react-leaflet";
 import { useCampusesContext } from "../hooks/useCampusesContext";
 import CanteenMarker from "./CanteenMarker";
 import RestaurantMarker from "./RestaurantMarker";
-import SideMenu from "./SideMenu";
-import HeaderBar from "./HeaderBar";
+import PlacesMarker from "./PlacesMarker";
 
 function MainMap(props) {
   const { curCampus } = useCampusesContext();
@@ -34,6 +33,24 @@ function MainMap(props) {
     fetchEateries();
   }, [curCampus]);
 
+  // Places
+  const [curPlaces, setCurPlaces] = useState([]);
+  useEffect(() => {
+    const fetchPlaces = async () => {
+      const placesApiString = "/api/campuses/places/" + curCampus?._id;
+      const response = await fetch(placesApiString); // PRODUCTION: must put full links
+      const json = await response.json();
+
+      // check if response is okay and without error
+      if (response.ok) {
+        // setCurEateries(json);
+        setCurPlaces(json);
+      }
+    };
+
+    fetchPlaces();
+  }, [curCampus]);
+
   return (
     <div>
       <div className="top-0 z-[-1] h-full w-full">
@@ -49,6 +66,9 @@ function MainMap(props) {
           attributionControl={false}
         >
           <TileLayer noWrap={true} attribution="" url={campusFolderPath} />
+          {curPlaces.map((place) => (
+            <PlacesMarker key={place._id} place={place}></PlacesMarker>
+          ))}
           {curCanteens.map((canteen) => (
             <CanteenMarker key={canteen._id} canteen={canteen}></CanteenMarker>
           ))}
@@ -58,6 +78,7 @@ function MainMap(props) {
               restaurant={restaurant}
             ></RestaurantMarker>
           ))}
+
           <AttributionControl position="bottomleft" />
         </MapContainer>
       </div>
