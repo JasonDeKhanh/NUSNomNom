@@ -98,7 +98,7 @@ function CanteenPopupContent(props) {
                     ></StallsListSection>
                     {showScrollIndicator && (
                       <div className="absolute bottom-0 mb-1 flex w-full justify-center">
-                        <ArrowDownIcon className="h-5 animate-bounce"></ArrowDownIcon>
+                        <ArrowDownIcon className="h-5 animate-bounce drop-shadow-glow"></ArrowDownIcon>
                       </div>
                     )}
                   </div>
