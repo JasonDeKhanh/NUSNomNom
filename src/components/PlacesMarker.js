@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { Marker, Tooltip, useMap } from "react-leaflet";
 import L from "leaflet";
@@ -17,10 +17,6 @@ function PlacesMarker(props) {
 
   const map = useMap();
   // Show or hide tooltip (marker label)
-  const [refreshMarkerDummy, setRefreshMarkerDummy] = useState(0);
-  useEffect(() => {
-    setRefreshMarkerDummy(refreshMarkerDummy + 1);
-  }, []); // need this useEffect so the show title when zomming in works
   const markerRef = useRef(null);
   const desiredZoomLevelCanteen = 3;
   const marker = markerRef.current;
@@ -65,7 +61,7 @@ function PlacesMarker(props) {
           <Tooltip
             direction="center"
             offset={[0, -20]}
-            className="pointer-events-none w-[5.5rem] whitespace-normal bg-transparent stroke-[#FFFFCC] stroke-black text-center text-sm font-medium text-black drop-shadow-placeGlow transition duration-100"
+            className="pointer-events-none w-[5.5rem] whitespace-normal bg-transparent stroke-[#FFFFCC] stroke-black text-center text-xs font-medium text-black drop-shadow-placeGlow transition duration-100 md:text-sm"
             permanent
           >
             {place.placeName}
