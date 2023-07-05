@@ -7,7 +7,7 @@ import { ReactComponent as LoadingIcon } from "../icons/LoadingSpinner.svg";
 
 function CanteenPopupContent(props) {
   const { open, canteen } = props;
-  const { curEatery } = useCampusesContext();
+  const { curEatery, curStall } = useCampusesContext();
 
   // Handle scroll indicator
   const stallsRef = useRef(null);

@@ -159,14 +159,27 @@ function CanteenMarker(props) {
             onClose={closeCanteenPopup}
             isMenuPage={true}
           >
-            {!curStall ? (
-              <CanteenPopupContent
-                canteen={canteen}
-                open={isOpenPopup}
-              ></CanteenPopupContent>
-            ) : (
-              <StallPopupContent></StallPopupContent>
-            )}
+            <div className={`flex flex-col flex-nowrap`}>
+              <div
+                className={`${
+                  !curStall
+                    ? "translate-y-0 opacity-100"
+                    : "-translate-y-full opacity-20"
+                } h-full transition-all duration-500 ease-in-out`}
+              >
+                <CanteenPopupContent
+                  canteen={canteen}
+                  open={isOpenPopup}
+                ></CanteenPopupContent>
+              </div>
+              <div
+                className={`${
+                  curStall ? "opacity-100" : "pointer-events-none opacity-0"
+                } absolute h-full w-full transition-all duration-500 ease-in-out`}
+              >
+                <StallPopupContent></StallPopupContent>
+              </div>
+            </div>
           </PopupBox>
           <div className="hidden">{refreshMarkerDummy}</div>
         </Marker>

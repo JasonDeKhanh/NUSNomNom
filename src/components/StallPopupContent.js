@@ -47,19 +47,21 @@ function StallPopupContent() {
   const [curMenu, setCurMenu] = useState(null);
   useEffect(() => {
     const fetchStallMenu = async () => {
-      const apiString = "/api/stalls/getmenu/" + curStall._id;
-      const response = await fetch(apiString);
-      const json = await response.json();
+      if (curStall) {
+        const apiString = "/api/stalls/getmenu/" + curStall._id;
+        const response = await fetch(apiString);
+        const json = await response.json();
 
-      if (response.ok) {
-        setCurMenu(json);
-      } else {
-        setCurMenu({ error: json.error });
+        if (response.ok) {
+          setCurMenu(json);
+        } else {
+          setCurMenu({ error: json.error });
+        }
       }
     };
 
     fetchStallMenu();
-  }, []);
+  }, [curStall]);
 
   function handleBackButton() {
     setCurMenu(null);
