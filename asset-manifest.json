@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/NUSNomNom/static/css/main.acea11f7.css",
+    "main.js": "/NUSNomNom/static/js/main.7bd8b033.js",
+    "static/js/787.a7e4a0ef.chunk.js": "/NUSNomNom/static/js/787.a7e4a0ef.chunk.js",
+    "static/media/CanteenIcon.svg": "/NUSNomNom/static/media/CanteenIcon.dbbee23139da2d55c8591e6d2da0d63c.svg",
+    "static/media/RestaurantIcon.svg": "/NUSNomNom/static/media/RestaurantIcon.1526bcb71a0bc381f60613fed5d4c479.svg",
+    "static/media/QuestionIcon.svg": "/NUSNomNom/static/media/QuestionIcon.4ce774ef297ce988ef097225951da50a.svg",
+    "static/media/ArrowDown.svg": "/NUSNomNom/static/media/ArrowDown.a391b5f82ff7777697763e684ab778c6.svg",
+    "index.html": "/NUSNomNom/index.html",
+    "static/media/LoadingSpinner.svg": "/NUSNomNom/static/media/LoadingSpinner.816740ad23d9f61d0d879437b3c6aa4b.svg",
+    "static/media/MenuIcon.svg": "/NUSNomNom/static/media/MenuIcon.128694812b262e171ce3564ade08066f.svg",
+    "static/media/CloseIcon.svg": "/NUSNomNom/static/media/CloseIcon.c3a4441057934509402f80138e3c3eab.svg",
+    "static/media/AboutIcon.svg": "/NUSNomNom/static/media/AboutIcon.1da190380ee856dd38cd5ce26c2e9443.svg",
+    "static/media/BackIcon.svg": "/NUSNomNom/static/media/BackIcon.23b6a6956fdd975dce2e90a5daa4b0c6.svg",
+    "static/media/ArrowDoubleRight.svg": "/NUSNomNom/static/media/ArrowDoubleRight.5b64eb8f5877bb57a3a03014c44da97c.svg",
+    "main.acea11f7.css.map": "/NUSNomNom/static/css/main.acea11f7.css.map",
+    "main.7bd8b033.js.map": "/NUSNomNom/static/js/main.7bd8b033.js.map",
+    "787.a7e4a0ef.chunk.js.map": "/NUSNomNom/static/js/787.a7e4a0ef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.acea11f7.css",
+    "static/js/main.7bd8b033.js"
+  ]
+}
