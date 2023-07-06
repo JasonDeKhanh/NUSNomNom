@@ -52,7 +52,8 @@ function CanteenMarker(props) {
   }
 
   async function getCurCanteenDetails() {
-    const apiString = "/api/canteens/" + canteen._id;
+    const apiString =
+      process.env.REACT_APP_API_ROOT + "/api/canteens/" + canteen._id;
     const response = await fetch(apiString);
     const json = await response.json();
 

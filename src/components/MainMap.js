@@ -9,7 +9,6 @@ import PlacesMarker from "./PlacesMarker";
 
 function MainMap(props) {
   const { curCampus } = useCampusesContext();
-  console.log(curCampus);
 
   const campusFolderPath =
     "../maps/" + curCampus?.mapFolderName + "/{z}/{x}/{y}.png";
@@ -19,7 +18,10 @@ function MainMap(props) {
   const [curRestaurants, setCurRestaurants] = useState([]);
   useEffect(() => {
     const fetchEateries = async () => {
-      const eateriesApiString = "/api/campuses/eateries/" + curCampus?._id;
+      const eateriesApiString =
+        process.env.REACT_APP_API_ROOT +
+        "/api/campuses/eateries/" +
+        curCampus?._id;
       const response = await fetch(eateriesApiString); // PRODUCTION: must put full links
       const json = await response.json();
 
@@ -38,7 +40,10 @@ function MainMap(props) {
   const [curPlaces, setCurPlaces] = useState([]);
   useEffect(() => {
     const fetchPlaces = async () => {
-      const placesApiString = "/api/campuses/places/" + curCampus?._id;
+      const placesApiString =
+        process.env.REACT_APP_API_ROOT +
+        "/api/campuses/places/" +
+        curCampus?._id;
       const response = await fetch(placesApiString); // PRODUCTION: must put full links
       const json = await response.json();
 

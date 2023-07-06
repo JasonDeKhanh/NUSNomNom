@@ -10,7 +10,8 @@ function App() {
   // fetch campuses, set kentridge campuses as initial one
   useEffect(() => {
     const fetchAllCampuses = async () => {
-      const response = await fetch("/api/campuses/");
+      const apiString = process.env.REACT_APP_API_ROOT + "/api/campuses/";
+      const response = await fetch(apiString);
       const json = await response.json();
 
       if (response.ok) {

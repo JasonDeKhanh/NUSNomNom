@@ -58,7 +58,10 @@ function RestaurantMarker(props) {
   const [curMenu, setCurMenu] = useState(null);
   useEffect(() => {
     const fetchRestaurantMenu = async () => {
-      const apiString = "/api/restaurants/getmenu/" + restaurant._id;
+      const apiString =
+        process.env.REACT_APP_API_ROOT +
+        "/api/restaurants/getmenu/" +
+        restaurant._id;
       const response = await fetch(apiString);
       const json = await response.json();
 
