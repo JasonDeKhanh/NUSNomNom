@@ -9,6 +9,7 @@ import PlacesMarker from "./PlacesMarker";
 
 function MainMap(props) {
   const { curCampus } = useCampusesContext();
+  console.log(curCampus);
 
   const campusFolderPath =
     "../maps/" + curCampus?.mapFolderName + "/{z}/{x}/{y}.png";
@@ -53,35 +54,40 @@ function MainMap(props) {
 
   return (
     <div>
-      <div className="top-0 z-[-1] h-full w-full">
-        <MapContainer
-          center={[35, -100]}
-          zoom={3}
-          maxBounds={[
-            [120, 20],
-            [-50, -200],
-          ]}
-          minZoom={1}
-          maxZoom={5}
-          attributionControl={false}
-        >
-          <TileLayer noWrap={true} attribution="" url={campusFolderPath} />
-          {curPlaces.map((place) => (
-            <PlacesMarker key={place._id} place={place}></PlacesMarker>
-          ))}
-          {curCanteens.map((canteen) => (
-            <CanteenMarker key={canteen._id} canteen={canteen}></CanteenMarker>
-          ))}
-          {curRestaurants.map((restaurant) => (
-            <RestaurantMarker
-              key={restaurant._id}
-              restaurant={restaurant}
-            ></RestaurantMarker>
-          ))}
+      {curCampus && (
+        <div className="top-0 z-[-1] h-full w-full">
+          <MapContainer
+            center={[curCampus.mapCenterY, curCampus.mapCenterX]}
+            zoom={3}
+            maxBounds={[
+              [120, 20],
+              [-50, -200],
+            ]}
+            minZoom={1}
+            maxZoom={5}
+            attributionControl={false}
+          >
+            <TileLayer noWrap={true} attribution="" url={campusFolderPath} />
+            {curPlaces.map((place) => (
+              <PlacesMarker key={place._id} place={place}></PlacesMarker>
+            ))}
+            {curCanteens.map((canteen) => (
+              <CanteenMarker
+                key={canteen._id}
+                canteen={canteen}
+              ></CanteenMarker>
+            ))}
+            {curRestaurants.map((restaurant) => (
+              <RestaurantMarker
+                key={restaurant._id}
+                restaurant={restaurant}
+              ></RestaurantMarker>
+            ))}
 
-          <AttributionControl position="bottomleft" />
-        </MapContainer>
-      </div>
+            <AttributionControl position="bottomleft" />
+          </MapContainer>
+        </div>
+      )}
     </div>
   );
 }
