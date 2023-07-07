@@ -51,9 +51,9 @@ function CanteenMarker(props) {
     setBackgroundZoom(true);
   }
 
+  const apiRoot = "https://nusnomnom-backend.onrender.com";
   async function getCurCanteenDetails() {
-    const apiString =
-      process.env.REACT_APP_API_ROOT + "/api/canteens/" + canteen._id;
+    const apiString = apiRoot + "/api/canteens/" + canteen._id;
     const response = await fetch(apiString);
     const json = await response.json();
 

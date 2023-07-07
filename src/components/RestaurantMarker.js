@@ -54,14 +54,12 @@ function RestaurantMarker(props) {
     dispatch({ type: "SET_CUR_EATERY", payload: restaurant });
   }
 
+  const apiRoot = "https://nusnomnom-backend.onrender.com";
   // fetch menu from out here!
   const [curMenu, setCurMenu] = useState(null);
   useEffect(() => {
     const fetchRestaurantMenu = async () => {
-      const apiString =
-        process.env.REACT_APP_API_ROOT +
-        "/api/restaurants/getmenu/" +
-        restaurant._id;
+      const apiString = apiRoot + "/api/restaurants/getmenu/" + restaurant._id;
       const response = await fetch(apiString);
       const json = await response.json();
 

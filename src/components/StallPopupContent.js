@@ -43,12 +43,13 @@ function StallPopupContent() {
     };
   }, []);
 
+  const apiRoot = "https://nusnomnom-backend.onrender.com";
   // fetch menu!
   const [curMenu, setCurMenu] = useState(null);
   useEffect(() => {
     const fetchStallMenu = async () => {
       if (curStall) {
-        const apiString = "/api/stalls/getmenu/" + curStall._id;
+        const apiString = apiRoot + "/api/stalls/getmenu/" + curStall._id;
         const response = await fetch(apiString);
         const json = await response.json();
 

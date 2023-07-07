@@ -13,15 +13,15 @@ function MainMap(props) {
   const campusFolderPath =
     "../maps/" + curCampus?.mapFolderName + "/{z}/{x}/{y}.png";
 
+  const apiRoot = "https://nusnomnom-backend.onrender.com";
+
   // fetch eateries
   const [curCanteens, setCurCanteens] = useState([]);
   const [curRestaurants, setCurRestaurants] = useState([]);
   useEffect(() => {
     const fetchEateries = async () => {
       const eateriesApiString =
-        process.env.REACT_APP_API_ROOT +
-        "/api/campuses/eateries/" +
-        curCampus?._id;
+        apiRoot + "/api/campuses/eateries/" + curCampus?._id;
       const response = await fetch(eateriesApiString); // PRODUCTION: must put full links
       const json = await response.json();
 
@@ -41,9 +41,7 @@ function MainMap(props) {
   useEffect(() => {
     const fetchPlaces = async () => {
       const placesApiString =
-        process.env.REACT_APP_API_ROOT +
-        "/api/campuses/places/" +
-        curCampus?._id;
+        apiRoot + "/api/campuses/places/" + curCampus?._id;
       const response = await fetch(placesApiString); // PRODUCTION: must put full links
       const json = await response.json();
 

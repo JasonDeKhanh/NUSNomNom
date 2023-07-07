@@ -8,9 +8,10 @@ import HeaderBar from "./components/HeaderBar";
 function App() {
   const { dispatch } = useCampusesContext();
   // fetch campuses, set kentridge campuses as initial one
+  const apiRoot = "https://nusnomnom-backend.onrender.com";
   useEffect(() => {
     const fetchAllCampuses = async () => {
-      const apiString = process.env.REACT_APP_API_ROOT + "/api/campuses/";
+      const apiString = apiRoot + "/api/campuses/";
       const response = await fetch(apiString);
       const json = await response.json();
 
