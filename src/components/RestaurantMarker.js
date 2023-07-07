@@ -7,7 +7,7 @@ import PopupBox from "./PopupBox";
 import RestaurantPopupContent from "./RestaurantPopupContent";
 
 const restaurantIcon = new L.icon({
-  iconUrl: "../icons/RestaurantIcon.svg",
+  iconUrl: `${process.env.PUBLIC_URL}/icons/RestaurantIcon.svg`,
   iconSize: [31, 40],
   iconAnchor: [15, 40],
 });

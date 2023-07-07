@@ -9,7 +9,7 @@ function InstructionsPage(props) {
   return (
     <main onClick={onClose} className="h-full w-full">
       <div className="absolute flex h-full w-full flex-col items-center justify-evenly overflow-auto p-4 md:font-medium">
-        <h2 className="mb-2 text-2xl font-bold">Instructions</h2>
+        <span className="mb-2 text-2xl font-bold">Instructions</span>
         <div className="flex w-full flex-col justify-center gap-4 md:flex-row lg:gap-2">
           <div className="flex justify-center md:mr-4 lg:w-1/3">
             <RestaurantIcon className="mr-4 h-auto w-10" />

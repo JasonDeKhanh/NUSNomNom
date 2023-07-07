@@ -8,7 +8,7 @@ import CanteenPopupContent from "./CanteenPopupContent";
 import StallPopupContent from "./StallPopupContent";
 
 const canteenIcon = new L.icon({
-  iconUrl: "../icons/CanteenIcon.svg",
+  iconUrl: `${process.env.PUBLIC_URL}/icons/CanteenIcon.svg`,
   iconSize: [31, 40],
   iconAnchor: [15, 40],
 });

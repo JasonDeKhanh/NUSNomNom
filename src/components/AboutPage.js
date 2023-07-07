@@ -4,7 +4,7 @@ function AboutPage(props) {
   return (
     <main className="flex h-full flex-col justify-between overflow-scroll p-4 md:font-medium lg:p-6">
       <div>
-        <h2 className="mb-2 text-2xl font-bold">About</h2>
+        <span className="mb-2 text-2xl font-bold">About</span>
         <p className="">
           NUSNomNom was made to help my friends and I decide{" "}
           <span className="font-bold text-[#d3a335]">
@@ -27,7 +27,7 @@ function AboutPage(props) {
         </p>
         <br />
         <p>
-          <h2 className="mb-2 text-2xl font-bold">Attributions</h2>
+          <span className="mb-2 text-2xl font-bold">Attributions</span>
           <span>
             Several vectors and icons by{" "}
             <a
