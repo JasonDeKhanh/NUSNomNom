@@ -18,6 +18,15 @@ function MainMap(props) {
 
   const apiRoot = "https://nusnomnom-backend.onrender.com";
 
+  function isIOS() {
+    var userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
+  function isStandalone() {
+    return isIOS() && window.navigator.standalone;
+  }
+
   // fetch eateries
   const [curCanteens, setCurCanteens] = useState([]);
   const [curRestaurants, setCurRestaurants] = useState([]);
@@ -72,6 +81,10 @@ function MainMap(props) {
             minZoom={1}
             maxZoom={5}
             attributionControl={false}
+            style={{
+              // is either iOS + standalone (homescreen) or not iOS
+              height: isStandalone() || !isIOS() ? "100vh" : "100svh",
+            }}
           >
             <TileLayer noWrap={true} attribution="" url={campusFolderPath} />
             {curPlaces.map((place) => (

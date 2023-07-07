@@ -14,11 +14,22 @@ function HeaderBar(props) {
     dispatch({ type: "SET_CUR_CAMPUS", payload: JSON.parse(e.target.value) });
   }
 
+  function isIOS() {
+    var userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
+  function isStandalone() {
+    return isIOS() && window.navigator.standalone;
+  }
+
   return (
     <div
       className={`${
         isOpenSideMenu ? "translate-x-0" : "-translate-x-48 md:-translate-x-56"
-      } z-10 mt-2 flex h-min w-[100vw] items-center justify-between transition-all duration-300 md:justify-start lg:mt-4`}
+      } z-10 ${
+        isStandalone() || !isIOS() ? "mt-12" : "mt-2"
+      } flex h-min w-[100vw] items-center justify-between transition-all duration-300 md:justify-start lg:mt-4`}
     >
       <div className="h-10">
         {!isOpenSideMenu && (

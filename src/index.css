@@ -9,7 +9,7 @@ body {
 
 .leaflet-container {
   width: 100vw;
-  height: 100svh;
+  /* height: 100svh; Put this inside MapContainer for dynamic style*/
   background-color: #ffffcc;
   font-family: "Quicksand";
 }
