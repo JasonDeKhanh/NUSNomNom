@@ -1,10 +1,17 @@
 @tailwind base;
 @tailwind components;
 
+html {
+  overflow: hidden;
+  height: 100vh;
+}
+
 body {
   background-color: #f9c03f;
   font-family: "Quicksand";
   overflow: hidden;
+  position: fixed;
+  -webkit-overflow-scrolling: touch;
 }
 
 .leaflet-container {

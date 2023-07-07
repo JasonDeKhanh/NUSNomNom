@@ -23,15 +23,6 @@ function App() {
     fetchAllCampuses();
   }, []);
 
-  // prevent scrolling in ios standalone mode
-  document.body.addEventListener(
-    "touchmove",
-    function (event) {
-      event.preventDefault();
-    },
-    { passive: false }
-  );
-
   // Side Menu
   const [isOpenSideMenu, setIsOpenSideMenu] = useState(false);
 
