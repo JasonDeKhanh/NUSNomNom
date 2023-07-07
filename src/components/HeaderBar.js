@@ -28,7 +28,7 @@ function HeaderBar(props) {
       className={`${
         isOpenSideMenu ? "translate-x-0" : "-translate-x-48 md:-translate-x-56"
       } z-10 ${
-        isStandalone() || !isIOS() ? "mt-12" : "mt-2"
+        isStandalone() || !isIOS() ? "mt-12 md:mt-2" : "mt-2"
       } flex h-min w-[100vw] items-center justify-between transition-all duration-300 md:justify-start lg:mt-4`}
     >
       <div className="h-10">
