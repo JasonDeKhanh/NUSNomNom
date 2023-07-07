@@ -36,7 +36,7 @@ function InstructionsPage(props) {
             </span>
             <img
               className="h-auto w-4/5 rounded-lg border border-[#f9c03f] md:mt-6"
-              src="/images/SelectCampus.webp"
+              src={`${process.env.PUBLIC_URL}/images/SelectCampus.webp`}
               alt="Select campus from dropdown at top of the screen"
             />
           </div>
@@ -49,7 +49,7 @@ function InstructionsPage(props) {
             </span>
             <img
               className="h-auto w-4/5 rounded-lg border border-[#f9c03f] "
-              src="/images/ClickOnMarker.webp"
+              src={`${process.env.PUBLIC_URL}/images/ClickOnMarker.webp`}
               alt="Select campus from dropdown at top of the screen"
             />
           </div>
