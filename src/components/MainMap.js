@@ -11,7 +11,7 @@ function MainMap(props) {
   const { curCampus } = useCampusesContext();
 
   const campusFolderPath =
-    "../maps/" + curCampus?.mapFolderName + "/{z}/{x}/{y}.png";
+    "/maps/" + curCampus?.mapFolderName + "/{z}/{x}/{y}.png";
 
   const apiRoot = "https://nusnomnom-backend.onrender.com";
 
