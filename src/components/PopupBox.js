@@ -4,11 +4,21 @@ import { ReactComponent as CloseIcon } from "../icons/CloseIcon.svg";
 
 function PopupBox(props) {
   const { open, onClose, isMenuPage } = props;
+
+  function isIOS() {
+    var userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
+  function isStandalone() {
+    return isIOS() && window.navigator.standalone;
+  }
+
   return (
     <div
-      className={`${
-        open ? "visible bg-black/40" : "invisible"
-      } absolute z-20 h-[100svh] w-[100vw] transition-all duration-200 ease-in`}
+      className={`${open ? "visible bg-black/40" : "invisible"} absolute z-20 ${
+        isStandalone() || !isIOS() ? "h-[100vh]" : "h-[100svh]"
+      } w-[100vw] transition-all duration-200 ease-in`}
     >
       <div
         className={`${
