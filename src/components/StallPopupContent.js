@@ -78,7 +78,7 @@ function StallPopupContent() {
         <div className="h-full bg-black bg-black/70 p-10 text-[#ffffcc] md:bg-transparent md:bg-gradient-to-r md:from-black md:from-20% md:opacity-100">
           {curStall && (
             <div className="flex h-full justify-center md:justify-start">
-              <div className="flex flex-col justify-center text-center md:text-left">
+              <div className="flex flex-col items-center justify-center text-center md:items-start md:text-left">
                 <button
                   onClick={handleBackButton}
                   className="group mb-4 flex w-fit items-center justify-center rounded-lg border border-[#ffffcc] px-2 transition-all duration-150 ease-in hover:bg-[#FFFFCC] hover:text-black active:bg-[#CCCC98] landscape:md:max-lg:mb-2"
