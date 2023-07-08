@@ -102,9 +102,12 @@ function MainMap(props) {
                 restaurant={restaurant}
               ></RestaurantMarker>
             ))}
-
             <AttributionControl position="bottomleft" />
           </MapContainer>
+          <div className="absolute bottom-2 mx-14 text-center text-xs italic md:text-base md:font-normal">
+            Information may not be 100% accurate{" "}
+            <span className="whitespace-nowrap">or up-to-date!</span>
+          </div>
         </div>
       )}
     </div>

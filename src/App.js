@@ -64,6 +64,9 @@ function App() {
           {isStillAlive ? (
             <span className="text-center font-medium text-[#FFFFCC]">
               Waking server up...
+              <br />
+              This might take a while if you are the first person to visit NUS
+              Nom Nom recently...
             </span>
           ) : (
             <div className="text-center font-medium text-[#FFFFCC]">
