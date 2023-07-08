@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/NUSNomNom/static/css/main.42da595c.css",
-    "main.js": "/NUSNomNom/static/js/main.31fdf4e2.js",
+    "main.css": "/NUSNomNom/static/css/main.1ad52ab9.css",
+    "main.js": "/NUSNomNom/static/js/main.e2b33a40.js",
     "static/js/787.a7e4a0ef.chunk.js": "/NUSNomNom/static/js/787.a7e4a0ef.chunk.js",
     "static/media/CanteenIcon.svg": "/NUSNomNom/static/media/CanteenIcon.dbbee23139da2d55c8591e6d2da0d63c.svg",
     "static/media/RestaurantIcon.svg": "/NUSNomNom/static/media/RestaurantIcon.1526bcb71a0bc381f60613fed5d4c479.svg",
@@ -14,12 +14,12 @@
     "static/media/AboutIcon.svg": "/NUSNomNom/static/media/AboutIcon.1da190380ee856dd38cd5ce26c2e9443.svg",
     "static/media/BackIcon.svg": "/NUSNomNom/static/media/BackIcon.23b6a6956fdd975dce2e90a5daa4b0c6.svg",
     "static/media/ArrowDoubleRight.svg": "/NUSNomNom/static/media/ArrowDoubleRight.5b64eb8f5877bb57a3a03014c44da97c.svg",
-    "main.42da595c.css.map": "/NUSNomNom/static/css/main.42da595c.css.map",
-    "main.31fdf4e2.js.map": "/NUSNomNom/static/js/main.31fdf4e2.js.map",
+    "main.1ad52ab9.css.map": "/NUSNomNom/static/css/main.1ad52ab9.css.map",
+    "main.e2b33a40.js.map": "/NUSNomNom/static/js/main.e2b33a40.js.map",
     "787.a7e4a0ef.chunk.js.map": "/NUSNomNom/static/js/787.a7e4a0ef.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.42da595c.css",
-    "static/js/main.31fdf4e2.js"
+    "static/css/main.1ad52ab9.css",
+    "static/js/main.e2b33a40.js"
   ]
 }
