@@ -56,7 +56,7 @@ function App() {
           setIsOpenSideMenu={setIsOpenSideMenu}
         ></HeaderBar>
       </div>
-      {isLoading && (
+      {isLoading && !error && (
         <div
           className={`relative flex h-[100vh] w-[100vw] flex-col items-center justify-center px-10`}
         >
@@ -76,6 +76,13 @@ function App() {
               <span>Apologies for the inconveniences</span>
             </div>
           )}
+        </div>
+      )}
+      {error && (
+        <div
+          className={`relative flex h-[100vh] w-[100vw] flex-col items-center justify-center px-10`}
+        >
+          An error has occurred: {error}
         </div>
       )}
       <MainMap></MainMap>
