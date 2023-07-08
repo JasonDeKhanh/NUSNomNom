@@ -36,7 +36,7 @@ function App() {
 
     const timer = setTimeout(() => {
       setIsStillAlive(false);
-    }, 10000);
+    }, 15000);
 
     return () => clearTimeout(timer);
   }, []);
