@@ -28,6 +28,7 @@ function AboutPage(props) {
         <br />
         <p>
           <span className="mb-2 text-2xl font-bold">Attributions</span>
+          <br />
           <span>
             Several vectors and icons by{" "}
             <a
