@@ -9,7 +9,7 @@ function MenuSection(props) {
         {menuSection.sectionName}
       </div>
       <hr className="mb-1 border border-[1px] border-[#F9C03F]" />
-      <div className="md:columns-2">
+      <div className="gap-16 md:columns-2">
         {menuSection.menuItems.map((menuItem) => (
           <MenuItem key={menuItem._id} menuItem={menuItem}></MenuItem>
         ))}

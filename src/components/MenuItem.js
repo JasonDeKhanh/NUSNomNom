@@ -3,7 +3,7 @@ import React from "react";
 function MenuItem(props) {
   const { menuItem } = props;
   return (
-    <div className="break-inside-avoid-column md:pr-4 xl:pr-8">
+    <div className="break-inside-avoid-column md:pr-2 xl:pr-4">
       {menuItem && (
         <div className="mb-3 flex items-center justify-between">
           <div className="flex flex-col">
