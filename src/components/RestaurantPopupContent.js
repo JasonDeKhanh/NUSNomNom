@@ -59,16 +59,22 @@ function RestaurantPopupContent(props) {
                       {curEatery.name}
                     </h1>
                     <div className="flex flex-col text-sm font-normal landscape:md:max-lg:text-xs">
-                      <span>Food type: {curEatery.foodType}</span>
-                      <span>Opening hours: {curEatery.openingHours}</span>
                       <span>
-                        Near:{" "}
+                        <span className="font-semibold">Food type: </span>
+                        {curEatery.foodType}
+                      </span>
+                      <span>
+                        <span className="font-semibold">Opening hours:</span>{" "}
+                        {curEatery.openingHours}
+                      </span>
+                      <span>
+                        <span className="font-semibold">Near: </span>
                         {curEatery.placesNear.map((place, index) => (
                           <span key={index}>{(index ? ", " : "") + place}</span>
                         ))}
                       </span>
                       <span>
-                        Bus stops:{" "}
+                        <span className="font-semibold">Bus stops: </span>
                         {curEatery.busStopsNear.map((busStop, index) => (
                           <span key={index}>
                             {(index ? ", " : "") + busStop}

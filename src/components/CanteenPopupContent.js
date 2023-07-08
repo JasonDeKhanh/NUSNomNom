@@ -58,15 +58,18 @@ function CanteenPopupContent(props) {
                       {canteen.name}
                     </h1>
                     <div className="flex flex-col text-base font-normal landscape:md:max-lg:text-xs">
-                      <span>Opening hours: {canteen.openingHours}</span>
                       <span>
-                        Near:{" "}
+                        <span className="font-semibold">Opening hours:</span>{" "}
+                        {canteen.openingHours}
+                      </span>
+                      <span>
+                        <span className="font-semibold">Near: </span>
                         {canteen.placesNear.map((place, index) => (
                           <span key={index}>{(index ? ", " : "") + place}</span>
                         ))}
                       </span>
                       <span>
-                        Bus stops:{" "}
+                        <span className="font-semibold">Bus stops: </span>
                         {canteen.busStopsNear.map((busStop, index) => (
                           <span key={index}>
                             {(index ? ", " : "") + busStop}

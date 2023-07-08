@@ -92,9 +92,13 @@ function StallPopupContent() {
                   {curStall.name}
                 </h1>
                 <div className="flex flex-col text-base font-normal lg:flex-row lg:gap-4 landscape:md:max-lg:text-xs">
-                  <span className="">Food Type: {curStall.foodType}</span>
                   <span className="">
-                    Opening Hours: {curStall.openingHours}
+                    <span className="font-semibold">Food Type:</span>{" "}
+                    {curStall.foodType}
+                  </span>
+                  <span className="">
+                    <span className="font-semibold">Opening Hours:</span>{" "}
+                    {curStall.openingHours}
                   </span>
                 </div>
               </div>
